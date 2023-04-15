@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float _moveSpead;
@@ -16,10 +18,12 @@ public class PlayerController : MonoBehaviour
     private InputAction _move;
     private Vector3 _direction;
     private Rigidbody _rigidbody;
+    private Animator _animator;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        _animator = GetComponent<Animator>();
         _playerInpyt = new PlayerInpyt();
         _playerInpyt.Enable();
 
@@ -33,9 +37,9 @@ public class PlayerController : MonoBehaviour
         _rigidbody.AddForce(_direction, ForceMode.Impulse);
         _direction = Vector3.zero;
 
-        if(_rigidbody.velocity.y < 0f)
+        if (_rigidbody.velocity.y < 0f)
         {
-            _rigidbody.velocity += Vector3.down * Physics.gravity.y * Time.deltaTime;
+            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime;
         }
 
         Vector3 horizontalVelocity = _rigidbody.velocity;
@@ -53,6 +57,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         _playerInpyt.Player.Jump.started += OnJump;
+        _playerInpyt.Player.Attack.started += OnAttack;
         _move = _playerInpyt.Player.Move;
         _playerInpyt.Enable();
     }
@@ -60,6 +65,7 @@ public class PlayerController : MonoBehaviour
     private void OnDisable()
     {
         _playerInpyt.Player.Jump.started -= OnJump;
+        _playerInpyt.Player.Attack.started -= OnAttack;
         _playerInpyt.Disable();
     }
 
@@ -81,7 +87,7 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGrounded())
         {
-            _direction += Vector3.up * _jumpForce * Time.deltaTime;
+            _direction += Vector3.up * _jumpForce;
         }
     }
 
@@ -90,7 +96,7 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = _rigidbody.velocity;
         direction.y = 0;
 
-        if(_move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
+        if (_move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
         {
             _rigidbody.rotation = Quaternion.LookRotation(direction, Vector3.up);
         }
@@ -102,9 +108,9 @@ public class PlayerController : MonoBehaviour
 
     private bool IsGrounded()
     {
-        Ray ray = new Ray(transform.position + Vector3.up * 0.25f, Vector3.down);
+        Ray ray = new Ray(transform.position + Vector3.up * 1f, Vector3.down);
 
-        if(Physics.Raycast(ray, out RaycastHit hit, 0.3f))
+        if (Physics.Raycast(ray, out RaycastHit hit, 2f))
         {
             return true;
         }
@@ -114,10 +120,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Move(Vector3 direction)
+    private void OnAttack(InputAction.CallbackContext obj)
     {
-        float scaleMoveSpeed = _moveSpead * Time.deltaTime;
-        Vector3 move = Quaternion.Euler(0, transform.eulerAngles.y, 0) * new Vector3(direction.x, direction.y, direction.z);
-        transform.position += move * scaleMoveSpeed;
+        _animator.SetTrigger("attakHorizont");
     }
 }
