@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "JumpAttac",
+                    "type": "Button",
+                    "id": "e1afdc12-a36d-4118-9b9c-de6e4c660b42",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,7 +47,7 @@
                     "name": "WASD",
                     "id": "23824578-9c90-4e0b-ad85-0d639d2b07d9",
                     "path": "2DVector",
-                    "interactions": "",
+                    "interactions": "MultiTap",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -104,12 +113,45 @@
                     "name": "",
                     "id": "d19c4f23-db02-4abb-9fc0-e2e030b965be",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "MultiTap(tapCount=3)",
                     "processors": "",
                     "groups": "Mouse and Keyboard",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "One Modifier",
+                    "id": "1f9996db-e3f1-48aa-91d8-3a7647d06c26",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "JumpAttac",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "23a12b8d-c179-4e4c-a10c-d9ba202edd9e",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse and Keyboard",
+                    "action": "JumpAttac",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "e2ded6cb-0b31-42f1-a7d8-fc08c6a6c1c6",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse and Keyboard",
+                    "action": "JumpAttac",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

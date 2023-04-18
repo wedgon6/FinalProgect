@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.Interactions;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
@@ -26,20 +28,35 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _playerInpyt = new PlayerInpyt();
         _playerInpyt.Enable();
+        _playerInpyt.Player.Attack.performed += ctx =>
+        {
+            if (ctx.interaction is MultiTapInteraction)
+            {
+                ComboAttack();
+            }
+        };
 
+        _playerInpyt.Player.Move.performed += ctx =>
+        {
+            if (ctx.interaction is MultiTapInteraction)
+            {
+                Dive();
+            }
+        };
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        //_direction = _playerInpyt.Player.Move.ReadValue<Vector3>();
-        _direction += _move.ReadValue<Vector2>().x * GetCameraRight(_camera) * _maxSpeed;
-        _direction += _move.ReadValue<Vector2>().y * GetCameraForward(_camera) * _maxSpeed;
+        _direction += _move.ReadValue<Vector2>().x * GetCameraRight(_camera) * _moveSpead;
+        _direction += _move.ReadValue<Vector2>().y * GetCameraForward(_camera) * _moveSpead;
+
+
         _rigidbody.AddForce(_direction, ForceMode.Impulse);
         _direction = Vector3.zero;
 
         if (_rigidbody.velocity.y < 0f)
         {
-            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.deltaTime;
+            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
         }
 
         Vector3 horizontalVelocity = _rigidbody.velocity;
@@ -51,13 +68,13 @@ public class PlayerController : MonoBehaviour
         }
 
         LookAt();
-        //Move(_direction);
     }
 
     private void OnEnable()
     {
         _playerInpyt.Player.Jump.started += OnJump;
         _playerInpyt.Player.Attack.started += OnAttack;
+        _playerInpyt.Player.JumpAttac.started += OnJumpAttack;
         _move = _playerInpyt.Player.Move;
         _playerInpyt.Enable();
     }
@@ -66,6 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         _playerInpyt.Player.Jump.started -= OnJump;
         _playerInpyt.Player.Attack.started -= OnAttack;
+        _playerInpyt.Player.JumpAttac.started -= OnJumpAttack;
         _playerInpyt.Disable();
     }
 
@@ -123,5 +141,20 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext obj)
     {
         _animator.SetTrigger("attakHorizont");
+    }
+
+    private void OnJumpAttack(InputAction.CallbackContext obj)
+    {
+        _animator.SetTrigger("jumpAttack");
+    }
+    
+    private void ComboAttack()
+    {
+        _animator.SetTrigger("comboAttack");
+    }
+
+    private void Dive()
+    {
+        _animator.SetTrigger("dive");
     }
 }
