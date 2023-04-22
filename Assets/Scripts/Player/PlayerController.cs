@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _jumpForce;
     [SerializeField] private float _maxSpeed;
     [SerializeField] private Camera _camera;
+    [SerializeField] private Player _player;
 
     private PlayerInpyt _playerInpyt;
     private InputAction _move;
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour
         _animator = GetComponent<Animator>();
         _playerInpyt = new PlayerInpyt();
         _playerInpyt.Enable();
+
         _playerInpyt.Player.Attack.performed += ctx =>
         {
             if (ctx.interaction is MultiTapInteraction)
@@ -42,31 +44,17 @@ public class PlayerController : MonoBehaviour
             {
                 Dive();
             }
+            
+            if (ctx.interaction is PressInteraction)
+            {
+                Move();
+            }
         };
     }
 
     private void FixedUpdate()
     {
-        _direction += _move.ReadValue<Vector2>().x * GetCameraRight(_camera) * _moveSpead;
-        _direction += _move.ReadValue<Vector2>().y * GetCameraForward(_camera) * _moveSpead;
-
-
-        _rigidbody.AddForce(_direction, ForceMode.Impulse);
-        _direction = Vector3.zero;
-
-        if (_rigidbody.velocity.y < 0f)
-        {
-            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
-        }
-
-        Vector3 horizontalVelocity = _rigidbody.velocity;
-        horizontalVelocity.y = 0;
-
-        if(horizontalVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
-        {
-            _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
-        }
-
+        Move();
         LookAt();
     }
 
@@ -156,5 +144,28 @@ public class PlayerController : MonoBehaviour
     private void Dive()
     {
         _animator.SetTrigger("dive");
+    }
+
+    private void Move()
+    {
+        _direction += _move.ReadValue<Vector2>().x * GetCameraRight(_camera) * _moveSpead;
+        _direction += _move.ReadValue<Vector2>().y * GetCameraForward(_camera) * _moveSpead;
+
+
+        _rigidbody.AddForce(_direction, ForceMode.Impulse);
+        _direction = Vector3.zero;
+
+        if (_rigidbody.velocity.y < 0f)
+        {
+            _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
+        }
+
+        Vector3 horizontalVelocity = _rigidbody.velocity;
+        horizontalVelocity.y = 0;
+
+        if (horizontalVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
+        {
+            _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
+        }
     }
 }

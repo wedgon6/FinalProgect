@@ -47,7 +47,7 @@
                     "name": "WASD",
                     "id": "23824578-9c90-4e0b-ad85-0d639d2b07d9",
                     "path": "2DVector",
-                    "interactions": "MultiTap",
+                    "interactions": "Press,MultiTap",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
