@@ -9,12 +9,14 @@ public class EnemyStateMachine : MonoBehaviour
 
     private Player _target;
     private State _currentState;
+    private int _health;
 
     public State CurrentState => _currentState;
 
     private void Start()
     {
         _target = GetComponent<Enemy>().Target;
+        _health = GetComponent<Enemy>().Health;
         Reset(_idleState);
     }
 

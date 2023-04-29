@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Dive",
+                    "type": "Button",
+                    "id": "fe7cb8f1-18bc-4525-84e2-70e045070105",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -47,7 +56,7 @@
                     "name": "WASD",
                     "id": "23824578-9c90-4e0b-ad85-0d639d2b07d9",
                     "path": "2DVector",
-                    "interactions": "Press,MultiTap",
+                    "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "Move",
@@ -152,6 +161,17 @@
                     "action": "JumpAttac",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "5a911fa3-35eb-4cf9-943f-a7b083c6290b",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse and Keyboard",
+                    "action": "Dive",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

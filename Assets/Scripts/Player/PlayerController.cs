@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _maxSpeed;
     [SerializeField] private Camera _camera;
     [SerializeField] private Player _player;
+    [SerializeField] private float _diveForce;
 
     private PlayerInpyt _playerInpyt;
     private InputAction _move;
@@ -38,18 +39,18 @@ public class PlayerController : MonoBehaviour
             }
         };
 
-        _playerInpyt.Player.Move.performed += ctx =>
-        {
-            if (ctx.interaction is MultiTapInteraction)
-            {
-                Dive();
-            }
+        //_playerInpyt.Player.Move.performed += ctx =>
+        //{
+        //    if (ctx.interaction is MultiTapInteraction)
+        //    {
+        //        Dive();
+        //    }
             
-            if (ctx.interaction is PressInteraction)
-            {
-                Move();
-            }
-        };
+        //    if (ctx.interaction is PressInteraction)
+        //    {
+        //        Move();
+        //    }
+        //};
     }
 
     private void FixedUpdate()
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
         _playerInpyt.Player.Jump.started += OnJump;
         _playerInpyt.Player.Attack.started += OnAttack;
         _playerInpyt.Player.JumpAttac.started += OnJumpAttack;
+        _playerInpyt.Player.Dive.started += OnDive;
         _move = _playerInpyt.Player.Move;
         _playerInpyt.Enable();
     }
@@ -72,6 +74,7 @@ public class PlayerController : MonoBehaviour
         _playerInpyt.Player.Jump.started -= OnJump;
         _playerInpyt.Player.Attack.started -= OnAttack;
         _playerInpyt.Player.JumpAttac.started -= OnJumpAttack;
+        _playerInpyt.Player.Dive.started -= OnDive;
         _playerInpyt.Disable();
     }
 
@@ -129,6 +132,7 @@ public class PlayerController : MonoBehaviour
     private void OnAttack(InputAction.CallbackContext obj)
     {
         _animator.SetTrigger("attakHorizont");
+        _player.Attack();
     }
 
     private void OnJumpAttack(InputAction.CallbackContext obj)
@@ -141,8 +145,9 @@ public class PlayerController : MonoBehaviour
         _animator.SetTrigger("comboAttack");
     }
 
-    private void Dive()
+    private void OnDive(InputAction.CallbackContext obj)
     {
+        _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
         _animator.SetTrigger("dive");
     }
 
@@ -150,7 +155,6 @@ public class PlayerController : MonoBehaviour
     {
         _direction += _move.ReadValue<Vector2>().x * GetCameraRight(_camera) * _moveSpead;
         _direction += _move.ReadValue<Vector2>().y * GetCameraForward(_camera) * _moveSpead;
-
 
         _rigidbody.AddForce(_direction, ForceMode.Impulse);
         _direction = Vector3.zero;

@@ -29,6 +29,7 @@ public class AttackState : State
 
     private void Attack(Player target)
     {
+        _animator.SetTrigger("attack");
         target.TakeDamage(_damage);
     }
 }

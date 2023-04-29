@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class IdleTransition : Transition
 {
-    private float _distace = 50f;
+    [SerializeField] private float _distace = 50f;
 
     private void Update()
     {

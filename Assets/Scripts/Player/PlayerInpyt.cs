@@ -62,6 +62,15 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dive"",
+                    ""type"": ""Button"",
+                    ""id"": ""fe7cb8f1-18bc-4525-84e2-70e045070105"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -69,7 +78,7 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                     ""name"": ""WASD"",
                     ""id"": ""23824578-9c90-4e0b-ad85-0d639d2b07d9"",
                     ""path"": ""2DVector"",
-                    ""interactions"": ""Press,MultiTap"",
+                    ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Move"",
@@ -174,6 +183,17 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                     ""action"": ""JumpAttac"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a911fa3-35eb-4cf9-943f-a7b083c6290b"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Dive"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -203,6 +223,7 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_JumpAttac = m_Player.FindAction("JumpAttac", throwIfNotFound: true);
+        m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,6 +287,7 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Attack;
     private readonly InputAction m_Player_JumpAttac;
+    private readonly InputAction m_Player_Dive;
     public struct PlayerActions
     {
         private @PlayerInpyt m_Wrapper;
@@ -274,6 +296,7 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Attack => m_Wrapper.m_Player_Attack;
         public InputAction @JumpAttac => m_Wrapper.m_Player_JumpAttac;
+        public InputAction @Dive => m_Wrapper.m_Player_Dive;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -295,6 +318,9 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                 @JumpAttac.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpAttac;
                 @JumpAttac.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpAttac;
                 @JumpAttac.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpAttac;
+                @Dive.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
+                @Dive.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
+                @Dive.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnDive;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -311,6 +337,9 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                 @JumpAttac.started += instance.OnJumpAttac;
                 @JumpAttac.performed += instance.OnJumpAttac;
                 @JumpAttac.canceled += instance.OnJumpAttac;
+                @Dive.started += instance.OnDive;
+                @Dive.performed += instance.OnDive;
+                @Dive.canceled += instance.OnDive;
             }
         }
     }
@@ -330,5 +359,6 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnJumpAttac(InputAction.CallbackContext context);
+        void OnDive(InputAction.CallbackContext context);
     }
 }

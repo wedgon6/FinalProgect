@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Animator))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
@@ -10,8 +11,16 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private Player _target;
 
+    private Animator _animator;
+
     public Player Target => _target;
-    public event UnityAction Dying;
+    public int Health => _health;
+    public event UnityAction<Enemy> Dying;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void TakeDamage(int damege)
     {
@@ -19,12 +28,8 @@ public class Enemy : MonoBehaviour
 
         if( _health < 0)
         {
-            Dead();
+            Dying?.Invoke(this);
+            _target.OnEnemyDied(_revard);
         }
-    }
-
-    private void Dead()
-    {
-
     }
 }

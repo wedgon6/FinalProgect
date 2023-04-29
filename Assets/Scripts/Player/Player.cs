@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class Player : MonoBehaviour
     private int _currentHealth;
     public int Experience { get; private set; }
 
+    public event UnityAction OnAttack;
+
     private void Start()
     {
         _currentHealth = _maxHealth;
@@ -17,6 +20,7 @@ public class Player : MonoBehaviour
 
     public void Attack()
     {
+        OnAttack?.Invoke();
         _weapon.ApplyDamage();
     }
 
