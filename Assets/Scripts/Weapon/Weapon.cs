@@ -12,7 +12,6 @@ public class Weapon : MonoBehaviour
     private Player _player;
     public int Damage => _damage;
     
-
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
@@ -20,11 +19,38 @@ public class Weapon : MonoBehaviour
         _player = GetComponent<Player>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    //if(collision.gameObject.layer == 6)
+    //    //{
+    //    //    collision.gameObject.TryGetComponent(out Enemy enemy);
+    //    //    enemy.TakeDamage(_damage);
+    //    //    Debug.Log("Попал");
+    //    //    _collider.enabled = false;
+    //    //}
+
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //        collision.gameObject.TryGetComponent(out Enemy enemy);
+    //        enemy.TakeDamage(_damage);
+    //        Debug.Log("Попал");
+    //        _collider.enabled = false;
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.layer == 6)
+        //if(collision.gameObject.layer == 6)
+        //{
+        //    collision.gameObject.TryGetComponent(out Enemy enemy);
+        //    enemy.TakeDamage(_damage);
+        //    Debug.Log("Попал");
+        //    _collider.enabled = false;
+        //}
+
+        if (other.gameObject.CompareTag("Enemy"))
         {
-            collision.gameObject.TryGetComponent(out Enemy enemy);
+            other.gameObject.TryGetComponent(out Enemy enemy);
             enemy.TakeDamage(_damage);
             Debug.Log("Попал");
             _collider.enabled = false;

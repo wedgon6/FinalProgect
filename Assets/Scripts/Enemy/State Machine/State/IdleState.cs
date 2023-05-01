@@ -10,5 +10,6 @@ public class IdleState : State
     private void Start()
     {
         _animation = GetComponent<Animator>();
+        _animation.SetTrigger("idle");
     }
 }

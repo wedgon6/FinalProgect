@@ -14,7 +14,7 @@ public class DyingTransition : Transition
 
     private void Update()
     {
-        if(_enemy.Health < 0)
+        if(_enemy.Health <= 0)
         {
             NeedTransit = true;
         }

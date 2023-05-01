@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class IdleTransition : Transition
 {
-    [SerializeField] private float _distace = 50f;
+    [SerializeField] private float _distace;
 
     private void Update()
     {
         Vector3 directionToTarget = transform.position - Target.transform.position;
         float distance = directionToTarget.magnitude;
 
-        if (distance < _distace)
+        if (distance >= _distace)
         {
             NeedTransit = true;
         }

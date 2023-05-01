@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Interactions;
@@ -23,6 +24,11 @@ public class PlayerController : MonoBehaviour
     private Vector3 _direction;
     private Rigidbody _rigidbody;
     private Animator _animator;
+
+    private int _diveEnergy = 5;
+
+    public event UnityAction<int> Dive;
+    public int DiveEnergy => _diveEnergy;
 
     private void Awake()
     {
@@ -147,8 +153,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnDive(InputAction.CallbackContext obj)
     {
-        _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
-        _animator.SetTrigger("dive");
+        if (_player.CanUse())
+        {
+            _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
+            _animator.SetTrigger("dive");
+            Dive?.Invoke(DiveEnergy);
+        }
     }
 
     private void Move()
