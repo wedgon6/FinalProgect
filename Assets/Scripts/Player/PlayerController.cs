@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private int _diveEnergy = 5;
 
     public event UnityAction<int> Dive;
+    public event UnityAction NotEnergy;
     public int DiveEnergy => _diveEnergy;
 
     private void Awake()
@@ -157,7 +158,11 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
             _animator.SetTrigger("dive");
-            Dive?.Invoke(DiveEnergy);
+            Dive?.Invoke(_diveEnergy);
+        }
+        else
+        {
+            NotEnergy?.Invoke();
         }
     }
 

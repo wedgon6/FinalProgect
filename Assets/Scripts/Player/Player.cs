@@ -33,17 +33,24 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerController.Dive += WastedEnergy;
+        _playerController.Dive += OnWastedEnergy;
     }
 
     private void OnDisable()
     {
-        _playerController.Dive -= WastedEnergy;
+        _playerController.Dive -= OnWastedEnergy;
     }
 
-    public void WastedEnergy(int enetgy)
+    private void OnWastedEnergy(int enetgy)
     {
         _currentVitality -= enetgy;
+        VitalityChanged?.Invoke();
+    }
+
+
+    private void DiveEnergy()
+    {
+        _currentVitality -= 10;
         VitalityChanged?.Invoke();
     }
 
