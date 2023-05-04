@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     private PlayerController _playerController;
     private int _currentHealth;
     private int _currentVitality;
+    private float _recoveryTime = 5f;
+    private float _pastTime = 0;
 
     public int CurrentHealth => _currentHealth;
     public int CurrentVitality => _currentVitality;
@@ -22,9 +24,12 @@ public class Player : MonoBehaviour
     public event UnityAction OnAttack;
     public event UnityAction VitalityChanged;
 
-    private void Start()
+    private void Awake()
     {
         _playerController = GetComponent<PlayerController>();
+    }
+    private void Start()
+    {
         _currentHealth = _maxHealth;
         _currentVitality = _maxVitality;
         HealthChanged?.Invoke();
@@ -47,11 +52,30 @@ public class Player : MonoBehaviour
         VitalityChanged?.Invoke();
     }
 
+    private void Update()
+    {
+        RecoverVitality();
+    }
 
     private void DiveEnergy()
     {
         _currentVitality -= 10;
         VitalityChanged?.Invoke();
+    }
+
+    private void RecoverVitality()
+    {
+
+        if (_pastTime >= _recoveryTime)
+        {
+            _currentVitality += 5;
+            VitalityChanged?.Invoke();
+            _pastTime = 0;
+        }
+        else
+        {
+            _pastTime += Time.deltaTime;
+        }
     }
 
     public void Attack()
