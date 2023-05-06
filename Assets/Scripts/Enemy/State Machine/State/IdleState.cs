@@ -10,6 +10,14 @@ public class IdleState : State
     private void Start()
     {
         _animation = GetComponent<Animator>();
-        _animation.SetTrigger("idle");
+        //_animation.SetTrigger("idle");
+        foreach (var trigger in _animation.parameters)
+        {
+            if (trigger.type == AnimatorControllerParameterType.Trigger)
+            {
+                _animation.ResetTrigger(trigger.name);
+            }
+        }
     }
 }
+
