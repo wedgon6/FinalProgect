@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnDive(InputAction.CallbackContext obj)
     {
-        if (_player.CanUse())
+        if (_player.CanUse(_diveEnergy))
         {
             _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
             _animator.SetTrigger("dive");

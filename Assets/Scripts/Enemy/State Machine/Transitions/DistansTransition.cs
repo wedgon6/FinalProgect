@@ -8,10 +8,15 @@ public class DistansTransition : Transition
 
     private void Update()
     {
-        Vector3 directionToTarget = transform.position - Target.transform.position;
-        float distance = directionToTarget.magnitude;
+        //Vector3 directionToTarget = transform.position - Target.transform.position;
+        //float distance = directionToTarget.magnitude;
 
-        if (distance < _distance)
+        //if (distance < _distance)
+        //{
+        //    NeedTransit = true;
+        //}
+
+        if (Vector3.Distance(transform.position, Target.transform.position) < _distance)
         {
             NeedTransit = true;
         }

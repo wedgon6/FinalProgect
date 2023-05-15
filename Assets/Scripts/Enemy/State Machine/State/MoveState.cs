@@ -26,6 +26,7 @@ public class MoveState : State
 
     private void FixedUpdate()
     {
+        _rigidbody.isKinematic = true;
         transform.LookAt(Target.transform.position);
         transform.position = Vector3.Lerp(transform.position, Target.transform.position, _moveSpeed * Time.fixedDeltaTime);
 

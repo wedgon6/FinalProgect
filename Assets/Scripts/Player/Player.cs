@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
     public event UnityAction HealthChanged;
     public event UnityAction OnAttack;
     public event UnityAction VitalityChanged;
+    public event UnityAction<int> ExperienceChanged;
 
     private void Awake()
     {
@@ -78,6 +79,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void OnLevelUp(int extraExpiriance,int _expirienceLevel)
+    {
+        Experience -= _expirienceLevel;
+        Experience += extraExpiriance;
+        ExperienceChanged?.Invoke(extraExpiriance);
+    }
+
+    public void ResetLevel()
+    {
+        Experience -= 50;
+        ExperienceChanged?.Invoke(0);
+    }
+
     public void Attack()
     {
         OnAttack?.Invoke();
@@ -93,9 +107,10 @@ public class Player : MonoBehaviour
     public void OnEnemyDied(int experience)
     {
         Experience += experience;
+        ExperienceChanged?.Invoke(experience);
     }
 
-    public bool CanUse()
+    public bool CanUse(int enegy)
     {
         if (_currentVitality <= 0)
         {

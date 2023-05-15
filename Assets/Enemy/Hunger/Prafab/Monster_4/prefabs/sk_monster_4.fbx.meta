@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: m_body
-    second: {fileID: 2100000, guid: 6ac4d746c4f51684ca17a210f855b2eb, type: 2}
+    second: {fileID: 2100000, guid: 67239b9df1c9ff740b5de1e742f4ab9e, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: m_plank
-    second: {fileID: 2100000, guid: d968e6c88e434134dbf53a4a15cbf3d2, type: 2}
+    second: {fileID: 2100000, guid: 84994e33d6b89234f8bb0e04e845e3d4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

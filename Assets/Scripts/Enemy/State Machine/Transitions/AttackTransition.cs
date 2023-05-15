@@ -24,7 +24,7 @@ public class AttackTransition : Transition
         Vector3 directionToTarget = transform.position - Target.transform.position;
         float distance = directionToTarget.magnitude;
 
-        if (distance < _transitionRange)
+        if (distance < _transitionRange && _enemy.IsComboAttack == false)
         {
             NeedTransit = true;
         }

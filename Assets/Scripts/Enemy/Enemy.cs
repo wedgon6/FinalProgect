@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _revard;
-
     [SerializeField] private Player _target;
 
     private Animator _animator;
