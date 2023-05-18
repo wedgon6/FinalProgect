@@ -86,6 +86,31 @@ public class Player : MonoBehaviour
         ExperienceChanged?.Invoke(extraExpiriance);
     }
 
+    private void PlayerAbillityOnAbillityUnlocked(object sender, PlayerAbillity.OnAbillityUlockedEventArgs eventArgs)
+    {
+        switch (eventArgs.AbillityType)
+        {
+            case PlayerAbillity.AbillityType.EasyStep:
+                UseEasyStep();
+                break;
+            case PlayerAbillity.AbillityType.SecondWind:
+                UseSecondWind();
+                break;
+        }
+    }
+
+    private void UseEasyStep()
+    {
+        _playerController.PlayerUseEasyStep();
+        Debug.Log("Легкий ШАг");
+    }
+
+    private void UseSecondWind()
+    {
+        _recoveryTime -= 2f;
+        Debug.Log("Уменьшил Время востановления");
+    }
+
     public void ResetLevel()
     {
         Experience -= 50;
@@ -96,6 +121,11 @@ public class Player : MonoBehaviour
     {
         OnAttack?.Invoke();
         _weapon.ApplyDamage();
+    }
+
+    public void ComboAttack()
+    {
+
     }
 
     public void TakeDamage(int damage)

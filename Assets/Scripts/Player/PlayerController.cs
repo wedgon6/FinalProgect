@@ -150,6 +150,7 @@ public class PlayerController : MonoBehaviour
     private void ComboAttack()
     {
         _animator.SetTrigger("comboAttack");
+        _player.ComboAttack();
     }
 
     private void OnDive(InputAction.CallbackContext obj)
@@ -186,5 +187,12 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
         }
+    }
+
+    public void PlayerUseEasyStep()
+    {
+        _maxSpeed += 2f;
+        _moveSpead += 2f;
+        _diveEnergy -= 2;
     }
 }

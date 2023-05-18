@@ -14,13 +14,15 @@ public class AbilityTree : MonoBehaviour
     [SerializeField] private Slider _expireanseBar;
     [SerializeField] private Player _player;
     [SerializeField] private TMP_Text _score;
-    
-    private Coroutine _coroutine;
-    private float _speedChange = 0.5f;
 
     private int _currentProgress;
     private int _expirienceLevel = 50;
     private int _currentScore;
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
@@ -63,25 +65,20 @@ public class AbilityTree : MonoBehaviour
 
     private void OnExperienceChanged(int experience)
     {
-        //if (_expireanseBar.value != _player.Experience)
-        //{
-        //    if (_coroutine != null)
-        //    {
-        //        StopCoroutine(_coroutine);
-        //    }
-
-        //    _currentProgress = _player.Experience;
-        //    _coroutine = StartCoroutine(DisplayChanget());
-        //}
         _currentProgress += experience;
         _expireanseBar.value = _currentProgress;
     }
 
-    private IEnumerator DisplayChanget()
+    private void OnSellButtonClick()
     {
-        Debug.Log(_player.Experience);
-        _expireanseBar.DOValue(_player.Experience, _speedChange);
+        
+    }
 
-        yield return null;
+    private void TrySellAbility()
+    {
+        if(_currentScore > 0)
+        {
+
+        }
     }
 }
