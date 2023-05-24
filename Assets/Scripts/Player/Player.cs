@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public int CurrentHealth => _currentHealth;
     public int CurrentVitality => _currentVitality;
     public int Experience { get; private set; }
+    public List<PlayerAbillity> _abillities;
     
     public event UnityAction HealthChanged;
     public event UnityAction OnAttack;
@@ -86,16 +87,33 @@ public class Player : MonoBehaviour
         ExperienceChanged?.Invoke(extraExpiriance);
     }
 
-    private void PlayerAbillityOnAbillityUnlocked(object sender, PlayerAbillity.OnAbillityUlockedEventArgs eventArgs)
+    private bool ÑheckAbilliy(PlayerAbillity abillity)
     {
-        switch (eventArgs.AbillityType)
+        for (int i = 0; i < _abillities.Count; i++)
         {
-            case PlayerAbillity.AbillityType.EasyStep:
+            if (_abillities[i] = abillity)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void AddAbillity(PlayerAbillity abillity)
+    {
+        _abillities.Add(abillity);
+        UseAbbility();
+    }
+
+    private void UseAbbility()
+    {
+        for (int i = 0; i < _abillities.Count; i++)
+        {
+            if (_abillities[i].Name == "EasyStep")
+            {
                 UseEasyStep();
-                break;
-            case PlayerAbillity.AbillityType.SecondWind:
-                UseSecondWind();
-                break;
+            }
         }
     }
 
@@ -140,7 +158,7 @@ public class Player : MonoBehaviour
         ExperienceChanged?.Invoke(experience);
     }
 
-    public bool CanUse(int enegy)
+    public bool CanUse(int energy)
     {
         if (_currentVitality <= 0)
         {

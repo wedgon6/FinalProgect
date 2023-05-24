@@ -4,16 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class PlayerAbillity : MonoBehaviour
+public abstract class PlayerAbillity : MonoBehaviour
 {
-    public event EventHandler<OnAbillityUlockedEventArgs> OnAbillityUnlocked;
-
-    public class OnAbillityUlockedEventArgs : EventArgs
-    {
-        public AbillityType AbillityType;
-    }
-
     public enum AbillityType
     {
         None,
@@ -28,58 +22,30 @@ public class PlayerAbillity : MonoBehaviour
         PowerOfHeaven,
         Novice
     }
+    [SerializeField] private bool _isByed = false;
+    [SerializeField] private string _name;
+    [SerializeField] private Button _sellButton;
 
-    private List<AbillityType> unblockedAbilities;
+    public bool IsByed => _isByed;
+    public string Name => _name;
+    public event UnityAction<PlayerAbillity> BayAbillity;
 
-    public PlayerAbillity()
+    private void OnEnable()
     {
-        unblockedAbilities = new List<AbillityType>();
+        _sellButton.onClick.AddListener(OnButtonClick);
     }
 
-    private void UnlockAbillity(AbillityType abillity)
+    private void OnDisable()
     {
-        if (!IsAbillityUnlocked(abillity))
-        {
-            unblockedAbilities.Add(abillity);
-            OnAbillityUnlocked?.Invoke(this, new OnAbillityUlockedEventArgs { AbillityType = abillity }); //???
-        }
+        _sellButton.onClick.RemoveListener(OnButtonClick);
     }
 
-    public bool IsAbillityUnlocked(AbillityType abillity)
+    private void OnButtonClick()
     {
-        return unblockedAbilities.Contains(abillity);
+        BayAbillity?.Invoke(this);
     }
-
-    public AbillityType GetAbillityType(AbillityType abillity)
+    public void Buy()
     {
-        switch (abillity)
-        {
-            case AbillityType.SecondWind: return AbillityType.EasyStep;
-        }
-
-        return AbillityType.None;
-    }
-
-    public bool TryUnlockSkill(AbillityType abillity)
-    {
-        AbillityType abillityRequirement = GetAbillityType(abillity);
-
-        if(abillityRequirement != AbillityType.None)
-        {
-            if (IsAbillityUnlocked(abillityRequirement))
-            {
-                UnlockAbillity(abillityRequirement);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        else
-        {
-            UnlockAbillity(abillity);
-            return true;
-        }
+        _isByed = true;
     }
 }

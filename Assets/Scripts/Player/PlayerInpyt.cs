@@ -196,6 +196,54 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Game"",
+            ""id"": ""25318fea-ded4-499f-82c3-cf2d3bb83cbc"",
+            ""actions"": [
+                {
+                    ""name"": ""OpenAbillityTree"",
+                    ""type"": ""Button"",
+                    ""id"": ""5907e49b-7f11-4152-9639-580f4f68cc25"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""bc7b3a84-929f-421d-b7b4-2b0dbcb75172"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""838b8fef-198e-4e77-82d3-fccb3336b8fb"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""OpenAbillityTree"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""203130b9-b27c-4b5f-990a-1ea795fa2c71"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""OpenMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -224,6 +272,10 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
         m_Player_JumpAttac = m_Player.FindAction("JumpAttac", throwIfNotFound: true);
         m_Player_Dive = m_Player.FindAction("Dive", throwIfNotFound: true);
+        // Game
+        m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
+        m_Game_OpenAbillityTree = m_Game.FindAction("OpenAbillityTree", throwIfNotFound: true);
+        m_Game_OpenMenu = m_Game.FindAction("OpenMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -344,6 +396,47 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Game
+    private readonly InputActionMap m_Game;
+    private IGameActions m_GameActionsCallbackInterface;
+    private readonly InputAction m_Game_OpenAbillityTree;
+    private readonly InputAction m_Game_OpenMenu;
+    public struct GameActions
+    {
+        private @PlayerInpyt m_Wrapper;
+        public GameActions(@PlayerInpyt wrapper) { m_Wrapper = wrapper; }
+        public InputAction @OpenAbillityTree => m_Wrapper.m_Game_OpenAbillityTree;
+        public InputAction @OpenMenu => m_Wrapper.m_Game_OpenMenu;
+        public InputActionMap Get() { return m_Wrapper.m_Game; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(GameActions set) { return set.Get(); }
+        public void SetCallbacks(IGameActions instance)
+        {
+            if (m_Wrapper.m_GameActionsCallbackInterface != null)
+            {
+                @OpenAbillityTree.started -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenAbillityTree;
+                @OpenAbillityTree.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenAbillityTree;
+                @OpenAbillityTree.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenAbillityTree;
+                @OpenMenu.started -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.performed -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenMenu;
+                @OpenMenu.canceled -= m_Wrapper.m_GameActionsCallbackInterface.OnOpenMenu;
+            }
+            m_Wrapper.m_GameActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @OpenAbillityTree.started += instance.OnOpenAbillityTree;
+                @OpenAbillityTree.performed += instance.OnOpenAbillityTree;
+                @OpenAbillityTree.canceled += instance.OnOpenAbillityTree;
+                @OpenMenu.started += instance.OnOpenMenu;
+                @OpenMenu.performed += instance.OnOpenMenu;
+                @OpenMenu.canceled += instance.OnOpenMenu;
+            }
+        }
+    }
+    public GameActions @Game => new GameActions(this);
     private int m_MouseandKeyboardSchemeIndex = -1;
     public InputControlScheme MouseandKeyboardScheme
     {
@@ -360,5 +453,10 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnJumpAttac(InputAction.CallbackContext context);
         void OnDive(InputAction.CallbackContext context);
+    }
+    public interface IGameActions
+    {
+        void OnOpenAbillityTree(InputAction.CallbackContext context);
+        void OnOpenMenu(InputAction.CallbackContext context);
     }
 }

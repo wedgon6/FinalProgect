@@ -11,13 +11,18 @@ using static UnityEngine.GraphicsBuffer;
 
 public class AbilityTree : MonoBehaviour
 {
-    [SerializeField] private Slider _expireanseBar;
     [SerializeField] private Player _player;
-    [SerializeField] private TMP_Text _score;
+    [SerializeField] private List<PlayerAbillity> _abillities;
 
-    private int _currentProgress;
+    private int _currentProgress = 0;
     private int _expirienceLevel = 50;
-    private int _currentScore;
+    private int _currentScore = 0;
+    private int _score = 0;
+
+    public int Score => _currentScore;
+    public int CurrentProgress => _currentProgress;
+    public event UnityAction ExspirianseChange;
+    public event UnityAction ScoreChange;
 
     private void Awake()
     {
@@ -27,9 +32,13 @@ public class AbilityTree : MonoBehaviour
     private void Start()
     {
         _currentProgress = _player.Experience;
-        _expireanseBar.maxValue = _expirienceLevel;
-        _expireanseBar.value = _currentProgress;
-        _score.text = _currentScore.ToString();
+        ScoreChange?.Invoke();
+        ExspirianseChange?.Invoke();
+
+        for (int i = 0; i < _abillities.Count; i++)
+        {
+            _abillities[i].BayAbillity += OnSellButtonClick;
+        }
     }
 
     private void Update()
@@ -53,32 +62,40 @@ public class AbilityTree : MonoBehaviour
     private void LevelUp()
     {
         _currentScore++;
-        _score.text = _currentScore.ToString();
+        ScoreChange?.Invoke();
 
         int extraExpiriance = _currentProgress - _expirienceLevel;
         _currentProgress = 0;
         _currentProgress += extraExpiriance;
-        _expireanseBar.value = _currentProgress;
         _player.ResetLevel();
+        ExspirianseChange?.Invoke();
         Debug.Log($"{extraExpiriance}, Зашел в иф");
     }
 
     private void OnExperienceChanged(int experience)
     {
         _currentProgress += experience;
-        _expireanseBar.value = _currentProgress;
+        ExspirianseChange?.Invoke();
+        ExspirianseChange?.Invoke();
     }
 
-    private void OnSellButtonClick()
+    private void OnSellButtonClick(PlayerAbillity abillity)
     {
-        
+        TrySellAbility(abillity);
     }
 
-    private void TrySellAbility()
+    private void TrySellAbility(PlayerAbillity abillity)
     {
         if(_currentScore > 0)
         {
-
+            if(abillity.IsByed == false)
+            {
+                _player.AddAbillity(abillity);
+                _currentScore--;
+                abillity.Buy();
+                abillity.BayAbillity -= OnSellButtonClick;
+                ScoreChange?.Invoke();
+            }
         }
     }
 }

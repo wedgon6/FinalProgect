@@ -193,6 +193,5 @@ public class PlayerController : MonoBehaviour
     {
         _maxSpeed += 2f;
         _moveSpead += 2f;
-        _diveEnergy -= 2;
     }
 }
