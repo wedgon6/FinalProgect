@@ -1910,7 +1910,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596555550}
-  m_LocalRotation: {x: 0.0000000030300797, y: -0.9306554, z: 0.36589697, w: 0.000000016937479}
+  m_LocalRotation: {x: -0.0000000030300793, y: -0.9306554, z: 0.36589697, w: -0.000000016937477}
   m_LocalPosition: {x: 0, y: 2.890502, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2591,6 +2591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
+  _thunderboltParticle: {fileID: 0}
 --- !u!54 &895402873
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2912,8 +2913,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0434\u044B\u0445\u0430\u043D\u0438\n\u0412\u044B
-    \u0440\u0430\u0441\u0445\u043E\u0434\u0443\u0435\u0442\u0435 \u043C\u0435\u043D\u044C\u0448\u0435
+  m_text: "\u0412\u0442\u043E\u0440\u043E\u0435 \u0434\u044B\u0445\u0430\u043D\u0438\n\u0423\u043C\u0435\u043D\u044C\u0448\u0430\u0435\u0442
+    \u0432\u0440\u0435\u043C\u044F \u0432\u043E\u0441\u0442\u0430\u043D\u0432\u043B\u0435\u043D\u0438\u044F
     \u044D\u043D\u0435\u0440\u0433\u0438\u0438"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3673,6 +3674,7 @@ GameObject:
   - component: {fileID: 1093219338}
   - component: {fileID: 1093219337}
   - component: {fileID: 1093219340}
+  - component: {fileID: 1093219341}
   m_Layer: 5
   m_Name: buttonFuriousBlow
   m_TagString: Untagged
@@ -3795,6 +3797,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 185570779}
+--- !u!114 &1093219341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093219335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b054f369b1105f4f82aa7fa395b54be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isByed: 0
+  _name: FuriousBlow
+  _sellButton: {fileID: 1093219337}
 --- !u!1 &1105495685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3808,6 +3825,7 @@ GameObject:
   - component: {fileID: 1105495688}
   - component: {fileID: 1105495687}
   - component: {fileID: 1105495690}
+  - component: {fileID: 1105495691}
   m_Layer: 5
   m_Name: buttonInnerPeace
   m_TagString: Untagged
@@ -3930,6 +3948,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1896663264}
+--- !u!114 &1105495691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1105495685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 223920d8652e0d84aab588479ac94b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isByed: 0
+  _name: InnerPeace
+  _sellButton: {fileID: 1105495687}
 --- !u!1 &1140310638
 GameObject:
   m_ObjectHideFlags: 0
@@ -6471,6 +6504,7 @@ GameObject:
   - component: {fileID: 1647812204}
   - component: {fileID: 1647812203}
   - component: {fileID: 1647812206}
+  - component: {fileID: 1647812207}
   m_Layer: 5
   m_Name: buttonBattleHungry
   m_TagString: Untagged
@@ -6593,6 +6627,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 1197387753}
+--- !u!114 &1647812207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647812201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98d083643e51f2e44a1c7581e8e3a245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isByed: 0
+  _name: BattleHungry
+  _sellButton: {fileID: 1647812203}
 --- !u!4 &1672563233 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 135384109936421098, guid: 363f73e781b9f15448a60a59f992e99e, type: 3}
@@ -6686,6 +6735,7 @@ GameObject:
   - component: {fileID: 1757748995}
   - component: {fileID: 1757748994}
   - component: {fileID: 1757748997}
+  - component: {fileID: 1757748998}
   m_Layer: 5
   m_Name: buttonSecondWind
   m_TagString: Untagged
@@ -6808,6 +6858,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 955112983}
+--- !u!114 &1757748998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1757748992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b33570f4e631440ae4473ebc8ea9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isByed: 0
+  _name: SecondWind
+  _sellButton: {fileID: 1757748994}
 --- !u!1 &1781240543
 GameObject:
   m_ObjectHideFlags: 0

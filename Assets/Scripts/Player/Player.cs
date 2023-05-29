@@ -112,18 +112,34 @@ public class Player : MonoBehaviour
         {
             if (_abillities[i].Name == "EasyStep")
             {
-                UseEasyStep();
+                AddEasyStep();
+            }
+            else if (_abillities[i].Name == "FuriousBlow")
+            {
+                _weapon.PlayerAddFuriousBlow();
+            }
+            else if(_abillities[i].Name == "BattleHungry")
+            {
+                _weapon.PlayerAddBattleHungr();
+            }
+            else if(_abillities[i].Name == "InnerPeace")
+            {
+                _playerController.PlayerAddEasyStep();
+            }
+            else if (_abillities[i].Name == "SecondWind")
+            {
+                AddSecondWind();
             }
         }
     }
 
-    private void UseEasyStep()
+    private void AddEasyStep()
     {
-        _playerController.PlayerUseEasyStep();
+        _playerController.PlayerAddEasyStep();
         Debug.Log("Легкий ШАг");
     }
 
-    private void UseSecondWind()
+    private void AddSecondWind()
     {
         _recoveryTime -= 2f;
         Debug.Log("Уменьшил Время востановления");
@@ -149,7 +165,13 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
+        Debug.Log("Получаю урон");
         HealthChanged?.Invoke();
+    }
+
+    public void RecoverHealth(int healing)
+    {
+        _currentHealth += healing;
     }
 
     public void OnEnemyDied(int experience)
@@ -160,7 +182,7 @@ public class Player : MonoBehaviour
 
     public bool CanUse(int energy)
     {
-        if (_currentVitality <= 0)
+        if (_currentVitality <= energy)
         {
             return false;
         }

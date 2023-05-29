@@ -17,7 +17,6 @@ public class AbilityTree : MonoBehaviour
     private int _currentProgress = 0;
     private int _expirienceLevel = 50;
     private int _currentScore = 0;
-    private int _score = 0;
 
     public int Score => _currentScore;
     public int CurrentProgress => _currentProgress;

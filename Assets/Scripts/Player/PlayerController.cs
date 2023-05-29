@@ -189,9 +189,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlayerUseEasyStep()
+    public void PlayerAddEasyStep()
     {
         _maxSpeed += 2f;
         _moveSpead += 2f;
+    }
+
+    public void PlayerAddInnerPeace()
+    {
+        _diveEnergy = 0;
     }
 }

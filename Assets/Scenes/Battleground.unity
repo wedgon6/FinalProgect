@@ -244,7 +244,7 @@ MonoBehaviour:
   m_BindingMode: 4
   m_FollowOffset: {x: -5.84, y: 5.71, z: -12.75}
   m_XDamping: 1
-  m_YDamping: 1
+  m_YDamping: 20
   m_ZDamping: 1
   m_AngularDampingMode: 0
   m_PitchDamping: 0
@@ -5310,6 +5310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
+  _thunderboltParticle: {fileID: 0}
 --- !u!54 &784851594
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6011,6 +6012,7 @@ MonoBehaviour:
   _maxHealth: 100
   _maxVitality: 100
   _weapon: {fileID: 784851593}
+  _abillities: []
 --- !u!1001 &1636909549
 PrefabInstance:
   m_ObjectHideFlags: 0

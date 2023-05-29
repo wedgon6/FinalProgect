@@ -38,6 +38,7 @@ public class HealthBar : MonoBehaviour
                 StopCoroutine(_coroutine);
             }
 
+            Debug.Log("Изменение ХП бара");
             _coroutine = StartCoroutine(DisplayChanget());
         }
     }
