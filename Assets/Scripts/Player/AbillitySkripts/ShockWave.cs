@@ -1,0 +1,38 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
+
+public class ShockWave : MonoBehaviour
+{
+    [SerializeField] private int _damage = 7;
+    [SerializeField] private float _timeDestrou = 3f;
+    [SerializeField] private float _speed = 6;
+
+    private Rigidbody _rigidbody;
+    private Vector3 _direction;
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject, _timeDestrou);
+        transform.Translate(Vector3.forward * _speed * Time.deltaTime);
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            other.gameObject.TryGetComponent(out Enemy enemy);
+            int currentDamage = _damage;
+            enemy.TakeDamage(currentDamage);
+            Debug.Log("Попал скилом");
+            Destroy(gameObject);
+        }
+    }
+}

@@ -8,26 +8,16 @@ using UnityEngine.UI;
 
 public abstract class PlayerAbillity : MonoBehaviour
 {
-    public enum AbillityType
-    {
-        None,
-        EasyStep,
-        SecondWind,
-        BattleHungry,
-        FuriousBlow,
-        InnerPeace,
-        ShockWave,
-        Thunderbolt,
-        Thunderclap, //юзабельный
-        PowerOfHeaven,
-        Novice
-    }
     [SerializeField] private bool _isByed = false;
     [SerializeField] private string _name;
     [SerializeField] private Button _sellButton;
+    [SerializeField] private bool _canBay = false;
+    [SerializeField] private PlayerAbillity _nextAbillity;
 
     public bool IsByed => _isByed;
     public string Name => _name;
+    public bool CanBay => _canBay;
+
     public event UnityAction<PlayerAbillity> BayAbillity;
 
     private void OnEnable()
@@ -44,8 +34,22 @@ public abstract class PlayerAbillity : MonoBehaviour
     {
         BayAbillity?.Invoke(this);
     }
+
     public void Buy()
     {
         _isByed = true;
+    }
+
+    public void OpenAbillity()
+    {
+        _canBay = true;
+    }
+
+    public virtual void OpenNextAbillity()
+    {
+        if(_nextAbillity != null)
+        {
+            _nextAbillity.OpenAbillity();
+        }
     }
 }

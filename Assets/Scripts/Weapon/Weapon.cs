@@ -7,25 +7,29 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private int _damage;
-    [SerializeField] private ParticleSystem _thunderboltParticle;
+    [SerializeField] private int _magicDanage = 4;
+    [SerializeField] private GameObject _thunderboltParticle;
+    [SerializeField] private ShockWave _shockWave;
+    [SerializeField] private Player _player;
 
     private BoxCollider _collider;
-    private Player _player;
     public int Damage => _damage;
+    public int MagicDanage => _magicDanage;
+
     private int _critDamage;
     private float _chanceCritDamage = 0;
     private float _chanceVampirism = 0;
     private int _multiplierDamage = 2;
     private float _attackDistance = 4;
+    private bool isShockWaveBuy = false;
 
+    public bool IsShockWaveBuy => isShockWaveBuy;
 
     private void Start()
     {
         _collider = GetComponent<BoxCollider>();
         _collider.enabled = false;
-        _player = GetComponent<Player>();
-        
-
+        _thunderboltParticle.SetActive(false);
     }
 
     //private void OnCollisionEnter(Collision collision)
@@ -60,7 +64,7 @@ public class Weapon : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.TryGetComponent(out Enemy enemy);
-            int currentDamage = _damage + CalculationCritDamage();
+            int currentDamage = _damage + CalculationCritDamage()+_magicDanage;
             enemy.TakeDamage(currentDamage);
             Debug.Log("Попал");
             if (IsVampirism())
@@ -110,8 +114,18 @@ public class Weapon : MonoBehaviour
         {
             if (colliders[i].TryGetComponent<Enemy>(out Enemy enemy))
             {
-                enemy.TakeDamage(_damage + CalculationCritDamage());
+                enemy.TakeDamage(_damage + CalculationCritDamage()+_magicDanage);
             }
+        }
+
+        if(isShockWaveBuy == true)
+        {
+            Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            float angleX = _player.transform.eulerAngles.x;
+            float angleY = _player.transform.eulerAngles.y;
+            float angleZ = _player.transform.eulerAngles.z;
+
+            Instantiate(_shockWave, position,Quaternion.Euler(angleX, angleY, angleZ));
         }
     }
 
@@ -123,5 +137,21 @@ public class Weapon : MonoBehaviour
     public void PlayerAddBattleHungr()
     {
         _chanceVampirism = 15;
+    }
+
+    public void PlayerAddShockWave()
+    {
+        isShockWaveBuy = true;
+    }
+
+    public void PlayerAddThunderbolt()
+    {
+        _thunderboltParticle.SetActive(true);
+        _magicDanage += 4;
+    }
+
+    public void PlayerAddPowerOfHeaven()
+    {
+        _magicDanage *= 2;
     }
 }

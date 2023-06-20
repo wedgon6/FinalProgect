@@ -87,13 +87,17 @@ public class AbilityTree : MonoBehaviour
     {
         if(_currentScore > 0)
         {
-            if(abillity.IsByed == false)
+            if (abillity.CanBay)
             {
-                _player.AddAbillity(abillity);
-                _currentScore--;
-                abillity.Buy();
-                abillity.BayAbillity -= OnSellButtonClick;
-                ScoreChange?.Invoke();
+                if (abillity.IsByed == false)
+                {
+                    _player.AddAbillity(abillity);
+                    _currentScore--;
+                    abillity.Buy();
+                    abillity.OpenNextAbillity();
+                    abillity.BayAbillity -= OnSellButtonClick;
+                    ScoreChange?.Invoke();
+                }
             }
         }
     }

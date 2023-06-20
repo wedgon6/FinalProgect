@@ -26,8 +26,9 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
 
     private int _diveEnergy = 5;
+    private int _comboAttackEnergy = 15;
 
-    public event UnityAction<int> Dive;
+    public event UnityAction<int> WastedEnergy;
     public event UnityAction NotEnergy;
     public int DiveEnergy => _diveEnergy;
 
@@ -149,8 +150,16 @@ public class PlayerController : MonoBehaviour
     
     private void ComboAttack()
     {
-        _animator.SetTrigger("comboAttack");
-        _player.ComboAttack();
+        if (_player.CanUse(_comboAttackEnergy))
+        {
+            _animator.SetTrigger("comboAttack");
+            _player.ComboAttack();
+            WastedEnergy?.Invoke(_comboAttackEnergy);
+        }
+        else
+        {
+            NotEnergy?.Invoke();
+        }
     }
 
     private void OnDive(InputAction.CallbackContext obj)
@@ -159,7 +168,7 @@ public class PlayerController : MonoBehaviour
         {
             _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
             _animator.SetTrigger("dive");
-            Dive?.Invoke(_diveEnergy);
+            WastedEnergy?.Invoke(_diveEnergy);
         }
         else
         {
@@ -191,12 +200,13 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerAddEasyStep()
     {
-        _maxSpeed += 2f;
-        _moveSpead += 2f;
+        _maxSpeed += 1f;
+        _moveSpead += 1f;
     }
 
     public void PlayerAddInnerPeace()
     {
         _diveEnergy = 0;
+        _comboAttackEnergy -= 5;
     }
 }

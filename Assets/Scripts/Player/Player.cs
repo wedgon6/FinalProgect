@@ -40,12 +40,12 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _playerController.Dive += OnWastedEnergy;
+        _playerController.WastedEnergy += OnWastedEnergy;
     }
 
     private void OnDisable()
     {
-        _playerController.Dive -= OnWastedEnergy;
+        _playerController.WastedEnergy -= OnWastedEnergy;
     }
 
     private void OnWastedEnergy(int enetgy)
@@ -56,7 +56,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        RecoverVitality();
+        if(_currentVitality > _maxVitality)
+        {
+            RecoverVitality();
+        }
     }
 
     private void DiveEnergy()
@@ -124,11 +127,27 @@ public class Player : MonoBehaviour
             }
             else if(_abillities[i].Name == "InnerPeace")
             {
-                _playerController.PlayerAddEasyStep();
+                _playerController.PlayerAddInnerPeace();
             }
             else if (_abillities[i].Name == "SecondWind")
             {
                 AddSecondWind();
+            }
+            else if (_abillities[i].Name == "ShockWave")
+            {
+                _weapon.PlayerAddShockWave();
+            }
+            else if (_abillities[i].Name == "Thunderbolt")
+            {
+                _weapon.PlayerAddThunderbolt();
+            }
+            else if (_abillities[i].Name == "PowerOfHeaven")
+            {
+                _weapon.PlayerAddPowerOfHeaven();
+            }
+            else if (_abillities[i].name == "InnerPeace")
+            {
+               
             }
         }
     }
@@ -159,7 +178,7 @@ public class Player : MonoBehaviour
 
     public void ComboAttack()
     {
-
+        _weapon.UseComboAttack();
     }
 
     public void TakeDamage(int damage)
