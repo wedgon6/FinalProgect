@@ -5,12 +5,13 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class ShockWave : MonoBehaviour
 {
-    [SerializeField] private int _damage = 7;
+    [SerializeField] private Weapon _weapon;
     [SerializeField] private float _timeDestrou = 3f;
     [SerializeField] private float _speed = 6;
 
     private Rigidbody _rigidbody;
     private Vector3 _direction;
+    private int _damage = 10;
 
     private void Start()
     {
@@ -29,10 +30,15 @@ public class ShockWave : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.TryGetComponent(out Enemy enemy);
-            int currentDamage = _damage;
-            enemy.TakeDamage(currentDamage);
+            enemy.TakeDamage(_damage);
             Debug.Log("Попал скилом");
+            Debug.Log(_damage);
             Destroy(gameObject);
         }
+    }
+
+    public void UpDamage()
+    {
+        _damage*=2;
     }
 }

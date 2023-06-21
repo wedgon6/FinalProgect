@@ -9,12 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _maxVitality;
     [SerializeField] private Weapon _weapon;
+    [SerializeField] private GameObject _ordsParticle;
 
     private PlayerController _playerController;
     private int _currentHealth;
     private int _currentVitality;
     private float _recoveryTime = 5f;
     private float _pastTime = 0;
+    private bool _canEasyStep = false;
 
     public int CurrentHealth => _currentHealth;
     public int CurrentVitality => _currentVitality;
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
         _currentVitality = _maxVitality;
         HealthChanged?.Invoke();
         VitalityChanged?.Invoke();
+        _ordsParticle.SetActive(false);
     }
 
     private void OnEnable()
@@ -56,7 +59,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if(_currentVitality > _maxVitality)
+        if(_currentVitality < _maxVitality)
         {
             RecoverVitality();
         }
@@ -145,23 +148,30 @@ public class Player : MonoBehaviour
             {
                 _weapon.PlayerAddPowerOfHeaven();
             }
-            else if (_abillities[i].name == "InnerPeace")
+            else if (_abillities[i].Name == "Novice")
             {
-               
+                PlayerAddNovice();
+            }
+            else if (_abillities[i].Name == "Thunderclap")
+            {
+                _playerController.PlayerAddThunderclap();
             }
         }
     }
 
     private void AddEasyStep()
     {
-        _playerController.PlayerAddEasyStep();
-        Debug.Log("Легкий ШАг");
+        if (_canEasyStep == false)
+        {
+            _playerController.PlayerAddEasyStep();
+            _canEasyStep = true;
+        }
     }
 
     private void AddSecondWind()
     {
-        _recoveryTime -= 2f;
         Debug.Log("Уменьшил Время востановления");
+        _recoveryTime -= 2f;
     }
 
     public void ResetLevel()
@@ -207,5 +217,11 @@ public class Player : MonoBehaviour
         }
 
         return true;
+    }
+
+    private void PlayerAddNovice()
+    {
+        Debug.Log("Включаю орбы");
+        _ordsParticle.SetActive(true);
     }
 }

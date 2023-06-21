@@ -200,6 +200,7 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerAddEasyStep()
     {
+        Debug.Log("Легкий ШАг");
         _maxSpeed += 1f;
         _moveSpead += 1f;
     }
@@ -208,5 +209,10 @@ public class PlayerController : MonoBehaviour
     {
         _diveEnergy = 0;
         _comboAttackEnergy -= 5;
+    }
+
+    public void PlayerAddThunderclap()
+    {
+
     }
 }

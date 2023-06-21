@@ -7,7 +7,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {
     [SerializeField] private int _damage;
-    [SerializeField] private int _magicDanage = 4;
+    [SerializeField] private int _magicDanage;
     [SerializeField] private GameObject _thunderboltParticle;
     [SerializeField] private ShockWave _shockWave;
     [SerializeField] private Player _player;
@@ -153,5 +153,11 @@ public class Weapon : MonoBehaviour
     public void PlayerAddPowerOfHeaven()
     {
         _magicDanage *= 2;
+        _shockWave.UpDamage();
+    }
+
+    public int GetMagicDamage()
+    {
+        return MagicDanage;
     }
 }
