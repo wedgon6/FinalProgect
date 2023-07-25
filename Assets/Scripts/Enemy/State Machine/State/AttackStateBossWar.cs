@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Enemy))]
-public class AttackStateBoss : State
+public class AttackStateBossWar : State
 {
     [SerializeField] private float _delay;
     [SerializeField] private int _damage;
