@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private GameObject _thunderboltParticle;
     [SerializeField] private ShockWave _shockWave;
     [SerializeField] private Player _player;
+    [SerializeField] private Tunderclap _tunderclapEffect;
 
     private BoxCollider _collider;
     public int Damage => _damage;
@@ -21,9 +22,11 @@ public class Weapon : MonoBehaviour
     private float _chanceVampirism = 0;
     private int _multiplierDamage = 2;
     private float _attackDistance = 4;
-    private bool isShockWaveBuy = false;
+    private bool _isShockWaveBuy = false;
+    private bool _isTunderclap = false;
 
-    public bool IsShockWaveBuy => isShockWaveBuy;
+    public bool IsShockWaveBuy => _isShockWaveBuy;
+    public bool IsTunderclap => _isTunderclap;
 
     private void Start()
     {
@@ -118,7 +121,7 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        if(isShockWaveBuy == true)
+        if(_isShockWaveBuy == true)
         {
             Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             float angleX = _player.transform.eulerAngles.x;
@@ -126,6 +129,27 @@ public class Weapon : MonoBehaviour
             float angleZ = _player.transform.eulerAngles.z;
 
             Instantiate(_shockWave, position,Quaternion.Euler(angleX, angleY, angleZ));
+        }
+    }
+
+    public void UseJumpAttack()
+    {
+        _collider.enabled = true;
+        var colliders = Physics.OverlapSphere(transform.position, _attackDistance);
+
+        for (int i = 0; i < colliders.Length; i++)
+        {
+            if (colliders[i].TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                enemy.TakeDamage(_damage + CalculationCritDamage() + _magicDanage);
+            }
+        }
+        Debug.Log("Попытался их заюзать");
+        if (_isTunderclap)
+        {
+            Vector3 position = new Vector3(transform.position.x, transform.position.y+5, transform.position.z);
+            Instantiate(_tunderclapEffect,position,Quaternion.Euler(0,0,0));
+            Debug.Log("Заюзал");
         }
     }
 
@@ -141,7 +165,13 @@ public class Weapon : MonoBehaviour
 
     public void PlayerAddShockWave()
     {
-        isShockWaveBuy = true;
+        _isShockWaveBuy = true;
+    }
+
+    public void PlayerAddTunderclap()
+    {
+        _isTunderclap = true;
+        Debug.Log("Купил молнии");
     }
 
     public void PlayerAddThunderbolt()

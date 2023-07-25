@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
             }
             else if (_abillities[i].Name == "Thunderclap")
             {
-                _playerController.PlayerAddThunderclap();
+                _weapon.PlayerAddTunderclap();
             }
         }
     }
@@ -189,6 +189,11 @@ public class Player : MonoBehaviour
     public void ComboAttack()
     {
         _weapon.UseComboAttack();
+    }
+
+    public void JumpAttack()
+    {
+        _weapon.UseJumpAttack();
     }
 
     public void TakeDamage(int damage)

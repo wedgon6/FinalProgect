@@ -146,6 +146,7 @@ public class PlayerController : MonoBehaviour
     private void OnJumpAttack(InputAction.CallbackContext obj)
     {
         _animator.SetTrigger("jumpAttack");
+        _player.JumpAttack();
     }
     
     private void ComboAttack()

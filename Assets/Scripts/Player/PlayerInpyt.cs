@@ -244,6 +244,34 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Camera"",
+            ""id"": ""3e5d2629-0c9c-445a-adf8-b285f2c92050"",
+            ""actions"": [
+                {
+                    ""name"": ""Rotation "",
+                    ""type"": ""Value"",
+                    ""id"": ""5cf88cb0-07ca-4d9c-96f6-cd71790f0e05"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""24800fa7-70bd-4408-8f1e-100d133e2e76"",
+                    ""path"": ""<Mouse>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse and Keyboard"",
+                    ""action"": ""Rotation "",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -276,6 +304,9 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_OpenAbillityTree = m_Game.FindAction("OpenAbillityTree", throwIfNotFound: true);
         m_Game_OpenMenu = m_Game.FindAction("OpenMenu", throwIfNotFound: true);
+        // Camera
+        m_Camera = asset.FindActionMap("Camera", throwIfNotFound: true);
+        m_Camera_Rotation = m_Camera.FindAction("Rotation ", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -437,6 +468,39 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // Camera
+    private readonly InputActionMap m_Camera;
+    private ICameraActions m_CameraActionsCallbackInterface;
+    private readonly InputAction m_Camera_Rotation;
+    public struct CameraActions
+    {
+        private @PlayerInpyt m_Wrapper;
+        public CameraActions(@PlayerInpyt wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Rotation => m_Wrapper.m_Camera_Rotation;
+        public InputActionMap Get() { return m_Wrapper.m_Camera; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(CameraActions set) { return set.Get(); }
+        public void SetCallbacks(ICameraActions instance)
+        {
+            if (m_Wrapper.m_CameraActionsCallbackInterface != null)
+            {
+                @Rotation.started -= m_Wrapper.m_CameraActionsCallbackInterface.OnRotation;
+                @Rotation.performed -= m_Wrapper.m_CameraActionsCallbackInterface.OnRotation;
+                @Rotation.canceled -= m_Wrapper.m_CameraActionsCallbackInterface.OnRotation;
+            }
+            m_Wrapper.m_CameraActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Rotation.started += instance.OnRotation;
+                @Rotation.performed += instance.OnRotation;
+                @Rotation.canceled += instance.OnRotation;
+            }
+        }
+    }
+    public CameraActions @Camera => new CameraActions(this);
     private int m_MouseandKeyboardSchemeIndex = -1;
     public InputControlScheme MouseandKeyboardScheme
     {
@@ -458,5 +522,9 @@ public partial class @PlayerInpyt : IInputActionCollection2, IDisposable
     {
         void OnOpenAbillityTree(InputAction.CallbackContext context);
         void OnOpenMenu(InputAction.CallbackContext context);
+    }
+    public interface ICameraActions
+    {
+        void OnRotation(InputAction.CallbackContext context);
     }
 }
