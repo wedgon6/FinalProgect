@@ -19,11 +19,6 @@ public class MoveState : State
         _animator = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void FixedUpdate()
     {
         _rigidbody.isKinematic = true;
