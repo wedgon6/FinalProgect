@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     public Player Target => _target;
     public int Health => _health;
     public bool IsComboAttack;
+    public bool IsBanTransition = false;
     public event UnityAction<Enemy> Dying;
 
     private void Start()
