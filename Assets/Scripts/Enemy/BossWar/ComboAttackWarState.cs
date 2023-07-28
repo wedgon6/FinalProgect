@@ -26,9 +26,10 @@ public class ComboAttackWarState : State
     private void Update()
     {
         ComboAttack(Target);
+        Jump();
     }
 
-    private void FixedUpdate()
+    private void Jump()
     {
         _rigidbody.isKinematic = false;
         _direction += Vector3.up * _jumpForce;
@@ -38,12 +39,10 @@ public class ComboAttackWarState : State
 
     private void ComboAttack(Player target)
     {
-        //transform.position = new Vector3(transform.position.x, _jumpForce, transform.position.z);
-        //_rigidbody.AddForce(Vector3.up * _jumpForce, ForceMode.VelocityChange);
+       
         Vector3 directionToTarget = transform.position - Target.transform.position;
         float distance = directionToTarget.magnitude;
 
-        //_direction += Vector3.up * _jumpForce;
         _animator.SetTrigger("commboAttack");
 
         if (distance <= 10)

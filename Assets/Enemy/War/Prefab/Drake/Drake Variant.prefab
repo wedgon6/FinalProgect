@@ -529,7 +529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a0102403878e1c4d87f072b93aff00b, type: 3}
       propertyPath: m_Name
-      value: Drake
+      value: Drake Variant
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a0102403878e1c4d87f072b93aff00b, type: 3}
       propertyPath: m_Layer
@@ -537,7 +537,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a0102403878e1c4d87f072b93aff00b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0a0102403878e1c4d87f072b93aff00b, type: 3}
       propertyPath: m_TagString
@@ -1044,6 +1044,7 @@ MonoBehaviour:
   _delay: 1
   _damage: 5
   _attacRange: 0.5
+  _canComboAttack: 0
 --- !u!114 &548013612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1115,7 +1116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 548013615}
-  _distance: 10
+  _distance: 15
 --- !u!114 &548013617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1157,5 +1158,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 20
   _revard: 2
-  _target: {fileID: 0}
   IsComboAttack: 0
+  IsBanTransition: 0

@@ -35,35 +35,8 @@ public class Weapon : MonoBehaviour
         _thunderboltParticle.SetActive(false);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    //if(collision.gameObject.layer == 6)
-    //    //{
-    //    //    collision.gameObject.TryGetComponent(out Enemy enemy);
-    //    //    enemy.TakeDamage(_damage);
-    //    //    Debug.Log("Попал");
-    //    //    _collider.enabled = false;
-    //    //}
-
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //        collision.gameObject.TryGetComponent(out Enemy enemy);
-    //        enemy.TakeDamage(_damage);
-    //        Debug.Log("Попал");
-    //        _collider.enabled = false;
-    //    }
-    //}
-
     private void OnTriggerEnter(Collider other)
-    {
-        //if(collision.gameObject.layer == 6)
-        //{
-        //    collision.gameObject.TryGetComponent(out Enemy enemy);
-        //    enemy.TakeDamage(_damage);
-        //    Debug.Log("Попал");
-        //    _collider.enabled = false;
-        //}
-
+    {  
         if (other.gameObject.CompareTag("Enemy"))
         {
             other.gameObject.TryGetComponent(out Enemy enemy);
@@ -73,6 +46,7 @@ public class Weapon : MonoBehaviour
             if (IsVampirism())
             {
                 _player.RecoverHealth(currentDamage);
+                Debug.Log($"Захилился вампиризмом{currentDamage}");
             }
 
             _collider.enabled = false;

@@ -553,7 +553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637584495559616, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
       propertyPath: m_Name
-      value: OrkAssasin
+      value: OrkAssasin Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1637584495559616, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
       propertyPath: m_Layer
@@ -561,7 +561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1637584495559616, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1637584495559616, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
       propertyPath: m_TagString
@@ -915,6 +915,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4751321784392818, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7366299
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751321784392818, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.015042144
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751321784392818, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.12676878
+      objectReference: {fileID: 0}
+    - target: {fileID: 4751321784392818, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6641385
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba2926d80e1466444936c24a1fa5aec7, type: 3}
 --- !u!1 &7298126981108443951 stripped
@@ -992,9 +1008,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _revard: 10
-  _target: {fileID: 0}
+  _revard: 5
   IsComboAttack: 0
+  IsBanTransition: 0
 --- !u!114 &1687074776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1014,6 +1030,7 @@ MonoBehaviour:
   _delay: 0.5
   _damage: 10
   _attacRange: 1
+  _canComboAttack: 0
 --- !u!114 &1687074777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1027,7 +1044,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1687074778}
-  _distance: 10
+  _distance: 15
 --- !u!114 &1687074778
 MonoBehaviour:
   m_ObjectHideFlags: 0
