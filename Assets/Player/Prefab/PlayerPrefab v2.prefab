@@ -888,6 +888,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050817664937863}
   _canBay: 1
   _nextAbillity: {fileID: 4167050819532843191}
+  _image: {fileID: 4167050817664937862}
 --- !u!1 &4167050817737035899
 GameObject:
   m_ObjectHideFlags: 3
@@ -912,7 +913,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050817737035899}
-  m_LocalRotation: {x: -0.0000000013611554, y: -0.9371401, z: 0.34895328, w: -0.000000008494832}
+  m_LocalRotation: {x: 0.000000001361155, y: -0.9371401, z: 0.34895328, w: 0.000000008494827}
   m_LocalPosition: {x: 0, y: 2.8905025, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1356,6 +1357,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050817932232442}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819298652202}
+  _image: {fileID: 4167050817932232441}
 --- !u!1 &4167050817933589670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1547,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050817974781765}
   _canBay: 1
   _nextAbillity: {fileID: 4167050818976401829}
+  _image: {fileID: 4167050817974781764}
 --- !u!1 &4167050818024726973
 GameObject:
   m_ObjectHideFlags: 3
@@ -1569,7 +1572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818024726973}
-  m_LocalRotation: {x: -0.0000000030300793, y: -0.9306554, z: 0.36589697, w: -0.000000016937477}
+  m_LocalRotation: {x: 0.0000000030300797, y: -0.9306554, z: 0.36589697, w: 0.000000016937479}
   m_LocalPosition: {x: 0, y: 2.8905025, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2173,7 +2176,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818319388912}
-  m_LocalRotation: {x: -0.0000000033376621, y: -0.923846, z: 0.38276455, w: -0.00000001687956}
+  m_LocalRotation: {x: 0.0000000033376621, y: -0.923846, z: 0.38276455, w: 0.00000001687956}
   m_LocalPosition: {x: 0, y: 2.8905025, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3223,6 +3226,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050818603894760}
   _canBay: 1
   _nextAbillity: {fileID: 4167050817932232446}
+  _image: {fileID: 4167050818603894767}
 --- !u!1 &4167050818637097206
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4252,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050818976401825}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819666399272}
+  _image: {fileID: 4167050818976401824}
 --- !u!1 &4167050819030689613
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,6 +4722,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050819090532552}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819666399272}
+  _image: {fileID: 4167050819090532559}
 --- !u!1 &4167050819146675957
 GameObject:
   m_ObjectHideFlags: 0
@@ -5020,6 +5026,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050819298652198}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819666399272}
+  _image: {fileID: 4167050819298652197}
 --- !u!1 &4167050819305762317
 GameObject:
   m_ObjectHideFlags: 0
@@ -5601,6 +5608,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050819532843187}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819298652202}
+  _image: {fileID: 4167050819532843186}
 --- !u!1 &4167050819560748354
 GameObject:
   m_ObjectHideFlags: 0
@@ -5990,6 +5998,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050819666399268}
   _canBay: 0
   _nextAbillity: {fileID: 4167050819298652202}
+  _image: {fileID: 4167050819666399275}
 --- !u!1 &4167050819679216292
 GameObject:
   m_ObjectHideFlags: 0
@@ -6143,6 +6152,7 @@ MonoBehaviour:
   _sellButton: {fileID: 4167050819679216298}
   _canBay: 1
   _nextAbillity: {fileID: 4167050819090532556}
+  _image: {fileID: 4167050819679216297}
 --- !u!1 &4167050819705600330
 GameObject:
   m_ObjectHideFlags: 0

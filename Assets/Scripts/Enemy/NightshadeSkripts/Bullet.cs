@@ -6,8 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float _timeDestrou = 3f;
     [SerializeField] private float _speed = 6;
-
-    private int _damage = 10;
+    [SerializeField] private int _damage = 10;
 
     private void Update()
     {

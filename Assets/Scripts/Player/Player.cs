@@ -170,7 +170,6 @@ public class Player : MonoBehaviour
 
     private void AddSecondWind()
     {
-        Debug.Log("Уменьшил Время востановления");
         _recoveryTime -= 2f;
     }
 
@@ -206,6 +205,7 @@ public class Player : MonoBehaviour
     public void RecoverHealth(int healing)
     {
         _currentHealth += healing;
+        HealthChanged?.Invoke();
     }
 
     public void OnEnemyDied(int experience)
@@ -226,7 +226,6 @@ public class Player : MonoBehaviour
 
     private void PlayerAddNovice()
     {
-        Debug.Log("Включаю орбы");
         _ordsParticle.SetActive(true);
     }
 }

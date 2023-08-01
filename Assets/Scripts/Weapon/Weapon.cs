@@ -24,6 +24,7 @@ public class Weapon : MonoBehaviour
     private float _attackDistance = 4;
     private bool _isShockWaveBuy = false;
     private bool _isTunderclap = false;
+    private bool _canVampirism = false;
 
     public bool IsShockWaveBuy => _isShockWaveBuy;
     public bool IsTunderclap => _isTunderclap;
@@ -69,11 +70,14 @@ public class Weapon : MonoBehaviour
 
     private bool IsVampirism()
     {
-        if (Random.Range(0, 100) <= _chanceVampirism)
+        if (_canVampirism)
         {
-            return true;
+            if (Random.Range(0, 100) <= _chanceVampirism)
+            {
+                return true;
+            }
         }
-
+       
         return false;
     }
 
@@ -135,6 +139,7 @@ public class Weapon : MonoBehaviour
     public void PlayerAddBattleHungr()
     {
         _chanceVampirism = 15;
+        _canVampirism = true;
     }
 
     public void PlayerAddShockWave()

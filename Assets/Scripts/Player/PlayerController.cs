@@ -26,7 +26,8 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
 
     private int _diveEnergy = 5;
-    private int _comboAttackEnergy = 15;
+    private int _comboAttackEnergy = 10;
+    private int _jympAttacEnergy = 40;
 
     public event UnityAction<int> WastedEnergy;
     public event UnityAction NotEnergy;
@@ -145,8 +146,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnJumpAttack(InputAction.CallbackContext obj)
     {
-        _animator.SetTrigger("jumpAttack");
-        _player.JumpAttack();
+        if (_player.CanUse(_jympAttacEnergy))
+        {
+            _animator.SetTrigger("jumpAttack");
+            _player.JumpAttack();
+            WastedEnergy?.Invoke(_jympAttacEnergy);
+        }
+        else
+        {
+            NotEnergy?.Invoke();
+        }
     }
     
     private void ComboAttack()

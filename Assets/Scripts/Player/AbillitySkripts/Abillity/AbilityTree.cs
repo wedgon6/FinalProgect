@@ -23,11 +23,6 @@ public class AbilityTree : MonoBehaviour
     public event UnityAction ExspirianseChange;
     public event UnityAction ScoreChange;
 
-    private void Awake()
-    {
-        
-    }
-
     private void Start()
     {
         _currentProgress = _player.Experience;
@@ -68,7 +63,6 @@ public class AbilityTree : MonoBehaviour
         _currentProgress += extraExpiriance;
         _player.ResetLevel();
         ExspirianseChange?.Invoke();
-        Debug.Log($"{extraExpiriance}, Зашел в иф");
     }
 
     private void OnExperienceChanged(int experience)

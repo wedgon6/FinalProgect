@@ -22,7 +22,7 @@ public abstract class PlayerAbillity : MonoBehaviour
 
     private void Start()
     {
-        //_image.color = new Color(0,0, 0, 0.5f);
+        _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, 0.5f);
     }
 
     private void OnEnable()
@@ -38,7 +38,7 @@ public abstract class PlayerAbillity : MonoBehaviour
     private void OnButtonClick()
     {
         BayAbillity?.Invoke(this);
-        //_image.color = new Color(this,this,this)
+        _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, 1f);
     }
 
     public void Buy()

@@ -526,10 +526,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.6450076
-  m_Height: 2.5281694
+  m_Radius: 0.84313375
+  m_Height: 2.492789
   m_Direction: 1
-  m_Center: {x: 0.010970116, y: 1.2740847, z: 0.1340375}
+  m_Center: {x: 0.20909625, y: 1.2563945, z: 0.1340375}
 --- !u!95 &826801540
 Animator:
   serializedVersion: 5
@@ -568,7 +568,7 @@ MonoBehaviour:
   - {fileID: 826801548}
   _delay: 1
   _damage: 5
-  _attacRange: 0.5
+  _attacRange: 1
   _canComboAttack: 0
 --- !u!114 &826801543
 MonoBehaviour:
@@ -694,9 +694,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ad7e6da4e1d14db6837b9f73c183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 20
-  _revard: 1
-  _target: {fileID: 0}
+  _health: 30
+  _revard: 3
   IsComboAttack: 0
   IsBanTransition: 0
 --- !u!1 &2513138530070425341
