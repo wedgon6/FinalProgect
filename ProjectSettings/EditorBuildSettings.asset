@@ -4,5 +4,17 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 2e37da8159d4a9d45ba1e614fa6ddeec
+  - enabled: 1
+    path: Assets/Scenes/Battleground.unity
+    guid: 657430dd1241e1540bd187d2d151e579
+  - enabled: 1
+    path: Assets/Scenes/FeastDuringThePlague.unity
+    guid: df2ad75c0c10aac4e9b7c716b632c491
+  - enabled: 1
+    path: "Assets/Scenes/\u0421old.unity"
+    guid: 097f2cc8357ac9f4dbf14df5a7ba488a
   m_configObjects: {}
