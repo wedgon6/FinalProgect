@@ -780,6 +780,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-1106423249997282735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5919799614033517209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 397a1bcef16a4cb47888808645e6f7db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teleport: {fileID: 2317468644322946306, guid: 1ba0d8585df4905428aac02a62f751ba, type: 3}
+  _teleportPosition: {fileID: 0}
 --- !u!114 &1073505361
 MonoBehaviour:
   m_ObjectHideFlags: 0

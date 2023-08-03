@@ -138,7 +138,7 @@ public class Weapon : MonoBehaviour
 
     public void PlayerAddBattleHungr()
     {
-        _chanceVampirism = 15;
+        _chanceVampirism = 15f;
         _canVampirism = true;
     }
 
