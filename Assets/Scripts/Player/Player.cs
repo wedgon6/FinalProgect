@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     public event UnityAction OnAttack;
     public event UnityAction VitalityChanged;
     public event UnityAction<int> ExperienceChanged;
+    public event UnityAction PlaeyDie;
 
     private void Awake()
     {
@@ -200,6 +201,11 @@ public class Player : MonoBehaviour
         _currentHealth -= damage;
         Debug.Log("Получаю урон");
         HealthChanged?.Invoke();
+
+        if(_currentHealth <= 0)
+        {
+            PlaeyDie?.Invoke();
+        }
     }
 
     public void RecoverHealth(int healing)
@@ -227,5 +233,13 @@ public class Player : MonoBehaviour
     private void PlayerAddNovice()
     {
         _ordsParticle.SetActive(true);
+    }
+
+    public void GetPlayerData(int health,int vitality)
+    {
+        _currentHealth = health;
+        _currentVitality = vitality;
+        HealthChanged?.Invoke();
+        VitalityChanged?.Invoke();
     }
 }

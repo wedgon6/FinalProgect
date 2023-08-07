@@ -10,9 +10,11 @@ public class AbilityTree : MonoBehaviour
     private int _currentProgress = 0;
     private int _expirienceLevel = 50;
     private int _currentScore = 0;
+    private int _totalScore = 0;
 
     public int Score => _currentScore;
     public int CurrentProgress => _currentProgress;
+    public int TotalScore => _totalScore;
     public event UnityAction ExspirianseChange;
     public event UnityAction ScoreChange;
 
@@ -49,6 +51,7 @@ public class AbilityTree : MonoBehaviour
     private void LevelUp()
     {
         _currentScore++;
+        _totalScore += 1;
         ScoreChange?.Invoke();
 
         int extraExpiriance = _currentProgress - _expirienceLevel;

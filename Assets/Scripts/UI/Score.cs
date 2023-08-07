@@ -8,11 +8,6 @@ public class Score : MonoBehaviour
     [SerializeField] private AbilityTree _abilityTree;
     [SerializeField] private TMP_Text _score;
 
-    //private void Start()
-    //{
-    //    _score.text = _abilityTree.Score.ToString();
-    //}
-
     private void OnEnable()
     {
         _abilityTree.ScoreChange += OnChangingScore;
