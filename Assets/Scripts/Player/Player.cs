@@ -10,12 +10,16 @@ public class Player : MonoBehaviour
     [SerializeField] private int _maxVitality;
     [SerializeField] private Weapon _weapon;
     [SerializeField] private GameObject _ordsParticle;
+    [SerializeField] private SaveManager _saveManager;
 
     private PlayerController _playerController;
+
     private int _currentHealth;
     private int _currentVitality;
+
     private float _recoveryTime = 5f;
     private float _pastTime = 0;
+
     private bool _canEasyStep = false;
 
     public int CurrentHealth => _currentHealth;
@@ -35,8 +39,7 @@ public class Player : MonoBehaviour
     }
     private void Start()
     {
-        _currentHealth = _maxHealth;
-        _currentVitality = _maxVitality;
+        _saveManager.LoadPalyerData();
         HealthChanged?.Invoke();
         VitalityChanged?.Invoke();
         _ordsParticle.SetActive(false);

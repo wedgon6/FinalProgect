@@ -1266,9 +1266,10 @@ GameObject:
   - component: {fileID: 4167050817661762518}
   - component: {fileID: 4167050817661762523}
   - component: {fileID: 4167050817661762522}
+  - component: {fileID: 470794075373583244}
   m_Layer: 0
   m_Name: Main Camera
-  m_TagString: MainCamera
+  m_TagString: SaveManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1537,7 +1538,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _abilityTree: {fileID: 4167050819631584461}
-  _gameMenu: {fileID: 0}
+  _gameMenu: {fileID: 1464365390158426035}
+--- !u!114 &470794075373583244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4167050817661762514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b3dd3139300c4dab3af9d13aa5408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 4593131726213228308}
+  _standartHealth: 100
+  _standartVitality: 100
+  _standartScore: 0
+  _standartProgress: 0
 --- !u!1 &4167050817664937857
 GameObject:
   m_ObjectHideFlags: 0
@@ -1716,8 +1734,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050817737035899}
-  m_LocalRotation: {x: 0.14981726, y: 0.3012583, z: -0.112176456, w: 0.9349945}
-  m_LocalPosition: {x: -3.652832, y: 0.7784555, z: 10.358798}
+  m_LocalRotation: {x: 0.14981744, y: 0.3012551, z: -0.112175256, w: 0.93499565}
+  m_LocalPosition: {x: -3.6527977, y: 0.77845025, z: 10.358773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167050818483628001}
@@ -2224,8 +2242,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818024726973}
-  m_LocalRotation: {x: 0.0000069586554, y: -0.9306554, z: 0.36589697, w: 0.000038897357}
-  m_LocalPosition: {x: 0.00047397625, y: 2.8905025, z: 20.909397}
+  m_LocalRotation: {x: 0.000008750101, y: -0.9306554, z: 0.36589697, w: 0.000048911163}
+  m_LocalPosition: {x: 0.00059604656, y: 2.8905025, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167050818637097205}
@@ -2828,8 +2846,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818319388912}
-  m_LocalRotation: {x: 0.18368204, y: 0.29698473, z: -0.12304563, w: 0.92893535}
-  m_LocalPosition: {x: -3.652832, y: 0.7784555, z: 10.358798}
+  m_LocalRotation: {x: 0.18368223, y: 0.2969815, z: -0.12304431, w: 0.92893654}
+  m_LocalPosition: {x: -3.6527977, y: 0.77845025, z: 10.358773}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167050818282595114}
@@ -7252,6 +7270,10 @@ PrefabInstance:
       propertyPath: _tunderclapEffect
       value: 
       objectReference: {fileID: 5830357364473732186, guid: 41af31c26faf423419f833215b6ffb8a, type: 3}
+    - target: {fileID: 1476487066, guid: 363f73e781b9f15448a60a59f992e99e, type: 3}
+      propertyPath: _saveManager
+      value: 
+      objectReference: {fileID: 470794075373583244}
     - target: {fileID: 1476487066, guid: 363f73e781b9f15448a60a59f992e99e, type: 3}
       propertyPath: _ordsParticle
       value: 

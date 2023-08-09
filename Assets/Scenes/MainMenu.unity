@@ -1430,6 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d164d7086fc52b42abdf87548e8a747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _saveManager: {fileID: 1330138574}
 --- !u!1 &1202032724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,7 +1513,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1202032727}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 983590210}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: ResumeGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1202032727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1696,6 +1709,7 @@ GameObject:
   - component: {fileID: 1330138571}
   - component: {fileID: 1330138570}
   - component: {fileID: 1330138573}
+  - component: {fileID: 1330138574}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1864,6 +1878,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1330138574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330138569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b3dd3139300c4dab3af9d13aa5408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 0}
+  _standartHealth: 100
+  _standartVitality: 100
+  _standartScore: 0
+  _standartProgress: 0
 --- !u!1 &1507623974
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] private SaveManager _saveManager;
+
     public void OpenPanel(GameObject panel)
     {
         panel.SetActive(true);
@@ -22,6 +24,12 @@ public class Menu : MonoBehaviour
 
     public void StartNewGame()
     {
+        _saveManager.ResetData();
         SceneManager.LoadScene("Battleground");
+    }
+
+    public void ResumeGame()
+    {
+        SceneManager.LoadScene(_saveManager.GetSaveSceneIndex());
     }
 }

@@ -861,6 +861,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rune
       objectReference: {fileID: 0}
+    - target: {fileID: 2317468644322946306, guid: 1ba0d8585df4905428aac02a62f751ba, type: 3}
+      propertyPath: _saveManager
+      value: 
+      objectReference: {fileID: 1879111715}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ba0d8585df4905428aac02a62f751ba, type: 3}
 --- !u!4 &463876450 stripped
@@ -3166,7 +3170,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.18387915
+      value: 0.18387912
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
@@ -3174,7 +3178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.12189142
+      value: -0.12189138
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818389728060, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_AnchorMax.y
@@ -3410,6 +3414,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
+--- !u!114 &1879111715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 470794075373583244, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
+  m_PrefabInstance: {fileID: 1879111714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 100b3dd3139300c4dab3af9d13aa5408, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1885877171
 PrefabInstance:
   m_ObjectHideFlags: 0
