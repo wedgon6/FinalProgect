@@ -7,6 +7,7 @@ public class GameRule : MonoBehaviour
 {
     [SerializeField] private GameObject _deadPanel;
     [SerializeField] private Player _player;
+    [SerializeField] private SaveManager _saveManager;
 
     private void OnEnable()
     {
@@ -31,6 +32,7 @@ public class GameRule : MonoBehaviour
 
     public void ExitMainMenu()
     {
+        _saveManager.SavePlayerData();
         SceneManager.LoadScene("MainMenu");
     }
 

@@ -91,4 +91,13 @@ public class AbilityTree : MonoBehaviour
             }
         }
     }
+
+    public void GetPlayerData(int score, int progress)
+    {
+        _currentScore = score;
+        _currentProgress = progress;
+
+        ScoreChange?.Invoke();
+        ExspirianseChange?.Invoke();
+    }
 }

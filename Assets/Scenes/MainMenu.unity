@@ -535,6 +535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1476487066, guid: 363f73e781b9f15448a60a59f992e99e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1672563230, guid: 363f73e781b9f15448a60a59f992e99e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1891,6 +1895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 0}
+  _abilityTree: {fileID: 0}
   _standartHealth: 100
   _standartVitality: 100
   _standartScore: 0

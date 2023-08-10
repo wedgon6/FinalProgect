@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] private Player _player;
+    [SerializeField] private AbilityTree _abilityTree;
     [SerializeField] private int _standartHealth;
     [SerializeField] private int _standartVitality;
     [SerializeField] private int _standartScore;
@@ -24,13 +25,19 @@ public class SaveManager : MonoBehaviour
 
    public void SavePlayerData()
     {
+        _playerHealth = _player.CurrentHealth;
+        _playerVitality = _player.CurrentVitality;
+        _playerScore = _abilityTree.TotalScore;
+        _playerLvlProgress = _abilityTree.CurrentProgress;
+        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
         PlayerPrefs.SetInt(_playerHealthKey, _playerHealth);
         PlayerPrefs.SetInt(_playerVitalityKey, _playerVitality);
         PlayerPrefs.SetInt(_playerScoreKey, _playerScore);
         PlayerPrefs.SetInt(_palaerLvlProgressKey, _playerLvlProgress);
-        _currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         PlayerPrefs.SetInt(_sceneIndexKey, _currentSceneIndex);
         Debug.Log("Сохранил данные");
+        Debug.Log(_currentSceneIndex);
     }
 
     public void LoadPalyerData()
@@ -53,18 +60,26 @@ public class SaveManager : MonoBehaviour
         }
 
         _player.GetPlayerData(_playerHealth, _playerVitality);
+        _abilityTree.GetPlayerData(_playerScore, _playerLvlProgress);
     }
 
     public int GetSaveSceneIndex()
     {
         if (PlayerPrefs.HasKey(_sceneIndexKey))
         {
-            return _currentSceneIndex;
+            return _currentSceneIndex = PlayerPrefs.GetInt(_sceneIndexKey);
         }
         else
         {
             return _standartSceneIndex;
         }
+    }
+
+    public void LoadSaveScene()
+    {
+        Debug.Log("Вызвал сохраненную сцену");
+        Debug.Log(_currentSceneIndex);
+        SceneManager.LoadScene(_currentSceneIndex = PlayerPrefs.GetInt(_sceneIndexKey));
     }
 
     public void ResetData()
