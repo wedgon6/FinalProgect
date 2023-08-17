@@ -202,7 +202,6 @@ public class Player : MonoBehaviour
     public void TakeDamage(int damage)
     {
         _currentHealth -= damage;
-        Debug.Log("Получаю урон");
         HealthChanged?.Invoke();
 
         if(_currentHealth <= 0)
@@ -213,8 +212,19 @@ public class Player : MonoBehaviour
 
     public void RecoverHealth(int healing)
     {
-        _currentHealth += healing;
-        HealthChanged?.Invoke();
+        if(_currentHealth < _maxHealth)
+        {
+            if((_currentHealth+healing >= _maxHealth))
+            {
+                _currentHealth = _maxHealth;
+                HealthChanged?.Invoke();
+            }
+            else
+            {
+                _currentHealth += healing;
+                HealthChanged?.Invoke();
+            }
+        }
     }
 
     public void OnEnemyDied(int experience)

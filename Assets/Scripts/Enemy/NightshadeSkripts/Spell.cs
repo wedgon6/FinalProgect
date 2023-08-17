@@ -11,7 +11,6 @@ public class Spell : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Player player))
         {
             player.TakeDamage(_damage);
-            Debug.Log("Враг попал скилом");
         }
     }
 }

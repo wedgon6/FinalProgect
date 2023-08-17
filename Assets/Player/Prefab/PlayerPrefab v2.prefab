@@ -1552,6 +1552,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 4593131726213228308}
+  _abilityTree: {fileID: 0}
   _standartHealth: 100
   _standartVitality: 100
   _standartScore: 0
@@ -1734,8 +1735,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050817737035899}
-  m_LocalRotation: {x: 0.14981744, y: 0.3012551, z: -0.112175256, w: 0.93499565}
-  m_LocalPosition: {x: -3.6527977, y: 0.77845025, z: 10.358773}
+  m_LocalRotation: {x: 0.1498174, y: 0.30125546, z: -0.112175375, w: 0.93499553}
+  m_LocalPosition: {x: -3.6528015, y: 0.7784507, z: 10.358776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167050818483628001}
@@ -1862,7 +1863,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4167050818234683178}
   m_FillRect: {fileID: 4167050818957624387}
   m_HandleRect: {fileID: 4167050818234683179}
@@ -2242,7 +2243,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818024726973}
-  m_LocalRotation: {x: 0.000008750101, y: -0.9306554, z: 0.36589697, w: 0.000048911163}
+  m_LocalRotation: {x: 0.000008744053, y: -0.9306554, z: 0.36589697, w: 0.00004887735}
   m_LocalPosition: {x: 0.00059604656, y: 2.8905025, z: 20.909397}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2370,7 +2371,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4167050818962831859}
   m_FillRect: {fileID: 4167050819030689612}
   m_HandleRect: {fileID: 4167050818962831853}
@@ -2846,8 +2847,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4167050818319388912}
-  m_LocalRotation: {x: 0.18368223, y: 0.2969815, z: -0.12304431, w: 0.92893654}
-  m_LocalPosition: {x: -3.6527977, y: 0.77845025, z: 10.358773}
+  m_LocalRotation: {x: 0.1836822, y: 0.29698184, z: -0.123044446, w: 0.9289364}
+  m_LocalPosition: {x: -3.6528015, y: 0.7784507, z: 10.358776}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4167050818282595114}
@@ -5402,7 +5403,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 4167050818656084521}
   m_FillRect: {fileID: 4167050818389728060}
   m_HandleRect: {fileID: 4167050818656084523}
@@ -6530,6 +6531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _deadPanel: {fileID: 8404496769446424801}
   _player: {fileID: 4593131726213228308}
+  _saveManager: {fileID: 0}
 --- !u!1 &5846360024099429901
 GameObject:
   m_ObjectHideFlags: 0

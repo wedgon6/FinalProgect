@@ -11,7 +11,6 @@ public class HealBottle : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Player player))
         {
             player.RecoverHealth(_heal);
-            Debug.Log("Игрок востановил здоровье");
             Destroy(gameObject);
         }
     }

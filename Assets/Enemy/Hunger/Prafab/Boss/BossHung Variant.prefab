@@ -25,15 +25,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21.9
+      value: 118.90719
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5900002
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -27.92
+      value: -273.02066
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
       propertyPath: m_LocalRotation.w
@@ -399,6 +399,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossHung Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: a3175e27151bedc46849063e821ff8cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 21.017523
@@ -756,10 +764,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.9509856
-  m_Height: 2.4545665
+  m_Radius: 0.90157443
+  m_Height: 2.65205
   m_Direction: 1
-  m_Center: {x: 0.016394934, y: 1.2287598, z: 0.0091940565}
+  m_Center: {x: -0.033016205, y: 1.1300193, z: 0.0091940565}
 --- !u!95 &1073505357
 Animator:
   serializedVersion: 5
@@ -807,7 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetState: {fileID: 1073505362}
-  _transitionRange: 5
+  _transitionRange: 2
 --- !u!114 &1073505362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -823,9 +831,9 @@ MonoBehaviour:
   _transitions:
   - {fileID: 1073505364}
   - {fileID: 1073505367}
-  _delay: 1.5
-  _damage: 15
-  _attackRange: 5
+  _delay: 1.2
+  _damage: 12
+  _attackRange: 2
   _clone: {fileID: 5148242254036092372, guid: 4ae11d380dadc0745adf0831d25710ab, type: 3}
 --- !u!114 &1073505363
 MonoBehaviour:
@@ -937,7 +945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ad7e6da4e1d14db6837b9f73c183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 600
+  _health: 700
   _revard: 15
   IsComboAttack: 0
   IsBanTransition: 0

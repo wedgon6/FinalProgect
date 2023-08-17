@@ -65,6 +65,5 @@ public class AttackStateHung : State
         float minValue = -5;
 
         Instantiate(_clone, new Vector3(transform.position.x+Random.Range(minValue,maxValue), transform.position.y, transform.position.z+ Random.Range(minValue, maxValue)), transform.rotation);
-        Debug.Log("создал кона");
     }
 }

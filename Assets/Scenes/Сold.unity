@@ -550,11 +550,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.21330212
+      value: 0.21330209
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.042177074
+      value: 0.04217707
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
@@ -5696,6 +5696,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1965013709}
     m_Modifications:
+    - target: {fileID: 1685310669, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
+      propertyPath: m_Center.y
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685310669, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
+      propertyPath: m_Center.z
+      value: -0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685310677, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
+      propertyPath: _health
+      value: 600
+      objectReference: {fileID: 0}
     - target: {fileID: 1721587517403622, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
       propertyPath: m_Name
       value: Necromanser Prefab

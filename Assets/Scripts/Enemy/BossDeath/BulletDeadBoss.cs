@@ -12,7 +12,6 @@ public class BulletDeadBoss : MonoBehaviour
         if (other.gameObject.TryGetComponent(out Player player))
         {
             player.TakeDamage(_damage);
-            Debug.Log("Враг попал косой");
             Destroy(gameObject);
         }
     }

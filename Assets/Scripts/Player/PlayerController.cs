@@ -47,19 +47,6 @@ public class PlayerController : MonoBehaviour
                 ComboAttack();
             }
         };
-
-        //_playerInpyt.Player.Move.performed += ctx =>
-        //{
-        //    if (ctx.interaction is MultiTapInteraction)
-        //    {
-        //        Dive();
-        //    }
-            
-        //    if (ctx.interaction is PressInteraction)
-        //    {
-        //        Move();
-        //    }
-        //};
     }
 
     private void FixedUpdate()
@@ -210,7 +197,6 @@ public class PlayerController : MonoBehaviour
 
     public void PlayerAddEasyStep()
     {
-        Debug.Log("ÀÂ„ÍËÈ ÿ¿„");
         _maxSpeed += 1f;
         _moveSpead += 1f;
     }
@@ -219,10 +205,5 @@ public class PlayerController : MonoBehaviour
     {
         _diveEnergy = 0;
         _comboAttackEnergy -= 5;
-    }
-
-    public void PlayerAddThunderclap()
-    {
-
     }
 }

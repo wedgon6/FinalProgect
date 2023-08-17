@@ -28,8 +28,6 @@ public class ShockWave : MonoBehaviour
         {
             other.gameObject.TryGetComponent(out Enemy enemy);
             enemy.TakeDamage(_damage);
-            Debug.Log("Попал скилом");
-            Debug.Log(_damage);
             Destroy(gameObject);
         }
     }

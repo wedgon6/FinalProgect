@@ -36,7 +36,6 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.SetInt(_playerScoreKey, _playerScore);
         PlayerPrefs.SetInt(_palaerLvlProgressKey, _playerLvlProgress);
         PlayerPrefs.SetInt(_sceneIndexKey, _currentSceneIndex);
-        Debug.Log("Сохранил данные");
         Debug.Log(_currentSceneIndex);
     }
 
@@ -48,7 +47,6 @@ public class SaveManager : MonoBehaviour
             _playerVitality = PlayerPrefs.GetInt(_playerVitalityKey);
             _playerScore = PlayerPrefs.GetInt(_playerScoreKey);
             _playerLvlProgress = PlayerPrefs.GetInt(_palaerLvlProgressKey);
-            Debug.Log($"Загрузи данные!{_playerHealth}, {_playerVitality}");
         }
         else
         {
@@ -56,7 +54,6 @@ public class SaveManager : MonoBehaviour
             _playerVitality = _standartVitality;
             _playerScore = _standartScore;
             _playerLvlProgress = _standartProgress;
-            Debug.Log($"Загрузи стандартные!{_playerHealth}, {_playerVitality}");
         }
 
         _player.GetPlayerData(_playerHealth, _playerVitality);
@@ -77,7 +74,6 @@ public class SaveManager : MonoBehaviour
 
     public void LoadSaveScene()
     {
-        Debug.Log("Вызвал сохраненную сцену");
         Debug.Log(_currentSceneIndex);
         SceneManager.LoadScene(_currentSceneIndex = PlayerPrefs.GetInt(_sceneIndexKey));
     }

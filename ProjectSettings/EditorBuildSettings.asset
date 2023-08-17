@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/\u0421old.unity"
     guid: 097f2cc8357ac9f4dbf14df5a7ba488a
+  - enabled: 1
+    path: Assets/Scenes/FinleScene.unity
+    guid: 7e0e4caab28b92246bb90f61bc26e402
   m_configObjects: {}

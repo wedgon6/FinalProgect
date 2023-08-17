@@ -525,6 +525,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ErrorMonster
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 153dd52e963e3984a9e2ae555405cdd3, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 153dd52e963e3984a9e2ae555405cdd3, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: 153dd52e963e3984a9e2ae555405cdd3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 62.068367

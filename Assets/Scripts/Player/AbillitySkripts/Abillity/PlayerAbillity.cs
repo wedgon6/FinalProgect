@@ -38,12 +38,12 @@ public abstract class PlayerAbillity : MonoBehaviour
     private void OnButtonClick()
     {
         BayAbillity?.Invoke(this);
-        _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, 1f);
     }
 
     public void Buy()
     {
         _isByed = true;
+        _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, 1f);
     }
 
     public void OpenAbillity()

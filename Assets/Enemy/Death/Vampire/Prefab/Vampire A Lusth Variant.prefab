@@ -451,6 +451,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vampire A Lusth Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 837f5d09d36f367428bef12851f90e4a, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 837f5d09d36f367428bef12851f90e4a, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 1092408308860062549, guid: 837f5d09d36f367428bef12851f90e4a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 11.990565
@@ -991,7 +999,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ad7e6da4e1d14db6837b9f73c183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 50
+  _health: 80
   _revard: 10
   IsComboAttack: 0
   IsBanTransition: 0

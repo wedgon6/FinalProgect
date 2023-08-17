@@ -31,7 +31,11 @@ public class Menu : MonoBehaviour
     public void ResumeGame()
     {
         _saveManager.LoadSaveScene();
-        Debug.Log("ÍÀÆÀË ÍÀ ÃĞÓÁÓÍÍÓŞ ÊÍÎÏÊÓ");
-        //SceneManager.LoadScene(_saveManager.GetSaveSceneIndex());
+    }
+
+    public void ExinMainMenu()
+    {
+        _saveManager.ResetData();
+        SceneManager.LoadScene("MainMenu");
     }
 }

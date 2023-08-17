@@ -43,11 +43,10 @@ public class Weapon : MonoBehaviour
             other.gameObject.TryGetComponent(out Enemy enemy);
             int currentDamage = _damage + CalculationCritDamage()+_magicDanage;
             enemy.TakeDamage(currentDamage);
-            Debug.Log("Попал");
+
             if (IsVampirism())
             {
-                _player.RecoverHealth(currentDamage);
-                Debug.Log($"Захилился вампиризмом{currentDamage}");
+                _player.RecoverHealth(currentDamage/2);
             }
 
             _collider.enabled = false;
@@ -122,12 +121,11 @@ public class Weapon : MonoBehaviour
                 enemy.TakeDamage(_damage + CalculationCritDamage() + _magicDanage);
             }
         }
-        Debug.Log("Попытался их заюзать");
+
         if (_isTunderclap)
         {
             Vector3 position = new Vector3(transform.position.x, transform.position.y+5, transform.position.z);
             Instantiate(_tunderclapEffect,position,Quaternion.Euler(0,0,0));
-            Debug.Log("Заюзал");
         }
     }
 
@@ -138,7 +136,7 @@ public class Weapon : MonoBehaviour
 
     public void PlayerAddBattleHungr()
     {
-        _chanceVampirism = 15f;
+        _chanceVampirism = 20f;
         _canVampirism = true;
     }
 
@@ -150,7 +148,6 @@ public class Weapon : MonoBehaviour
     public void PlayerAddTunderclap()
     {
         _isTunderclap = true;
-        Debug.Log("Купил молнии");
     }
 
     public void PlayerAddThunderbolt()
