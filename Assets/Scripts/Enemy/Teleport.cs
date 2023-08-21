@@ -16,7 +16,7 @@ public class Teleport : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.TryGetComponent(out Player player))
         {
             _saveManager.SavePlayerData();
             int currentScene = SceneManager.GetActiveScene().buildIndex;
