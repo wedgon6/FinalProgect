@@ -43,7 +43,7 @@ public class ComboAttackWarState : State
         Vector3 directionToTarget = transform.position - Target.transform.position;
         float distance = directionToTarget.magnitude;
 
-        _animator.SetTrigger("commboAttack");
+        _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
 
         if (distance <= 10)
         {

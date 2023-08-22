@@ -38,7 +38,7 @@ public class AttackState : State
             ÑheckComboAttac();
         }
 
-        _animator.SetTrigger("idle");
+        _animator.SetTrigger(_hashAnimation.IdelAnimation);
         _lastAttackTime -= Time.deltaTime;
     }
 
@@ -49,12 +49,12 @@ public class AttackState : State
 
         if(distance <= _attacRange)
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
             target.TakeDamage(_damage);
         }
         else
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
         }
     }
 

@@ -20,7 +20,7 @@ public class DyingState : State
     {
         _collider.enabled = false;
         _animator = GetComponent<Animator>();
-        _animator.SetTrigger("dead");
+        _animator.SetTrigger(_hashAnimation.DeadAnimation);
     }
 
     private void Update()

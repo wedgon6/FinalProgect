@@ -41,7 +41,7 @@ public class AttackStateDeathBoss : State
             _lastAttackTime = _delay;
         }
 
-        _animator.SetTrigger("idle");
+        _animator.SetTrigger(_hashAnimation.IdelAnimation);
         _lastAttackTime -= Time.deltaTime;
         _lastComboAttackTime -= Time.deltaTime;
     }
@@ -53,12 +53,12 @@ public class AttackStateDeathBoss : State
 
         if (distance <= _attackRange)
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
             target.TakeDamage(_damage);
         }
         else
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
         }
 
         _enemy.IsBanTransition = true;
@@ -66,7 +66,7 @@ public class AttackStateDeathBoss : State
 
    private void ComboAttack()
     {
-        _animator.SetTrigger("comboAttack");
+        _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
         Instantiate(_bulletDeadBoss, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
         _enemy.IsBanTransition = false;
     }

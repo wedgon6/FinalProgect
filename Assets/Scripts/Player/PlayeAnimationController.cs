@@ -9,6 +9,7 @@ public class PlayeAnimationController : MonoBehaviour
     private Animator _animator;
     private Rigidbody _rigidbody;
     private float _maxSpeed = 5f;
+    protected HashAnimationPlayer _hashAnimation = new HashAnimationPlayer();
 
     private void Start()
     {
@@ -18,6 +19,6 @@ public class PlayeAnimationController : MonoBehaviour
 
     private void Update()
     {
-        _animator.SetFloat("speed", _rigidbody.velocity.magnitude / _maxSpeed);
+        _animator.SetFloat(_hashAnimation.Speed, _rigidbody.velocity.magnitude / _maxSpeed);
     }
 }

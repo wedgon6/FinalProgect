@@ -25,7 +25,7 @@ public class MoveState : State
         transform.LookAt(Target.transform.position);
         transform.position = Vector3.Lerp(transform.position, Target.transform.position, _moveSpeed * Time.fixedDeltaTime);
 
-        _animator.SetTrigger("walk");
+        _animator.SetTrigger(_hashAnimation.MoveAnimation);
 
         _direction = new Vector3(Target.transform.position.x, 0, Target.transform.position.z);
         _rigidbody.AddForce(_direction * _moveSpeed);
@@ -43,10 +43,5 @@ public class MoveState : State
         {
             _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
         }
-    }
-
-    private void RunAnimation()
-    {
-        _animator.SetBool("isRun", true);
     }
 }

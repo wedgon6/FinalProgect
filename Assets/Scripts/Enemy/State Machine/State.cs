@@ -8,6 +8,8 @@ public abstract class State : MonoBehaviour
 
     protected Player Target { get; private set; }
 
+    protected HashAnimationEnemy _hashAnimation = new HashAnimationEnemy();
+
     public void EnterState(Player target)
     {
         if(enabled == false)

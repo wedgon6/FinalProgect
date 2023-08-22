@@ -15,9 +15,10 @@ public class ComboAttacErrorMonsterState : State
     private void Start()
     {
         _enemy = GetComponent<Enemy>();
+        _animator = GetComponent<Animator>();
         _particlePoison.SetActive(false);
         _particlePoison.SetActive(true);
-        _animator.SetTrigger("commboAttack");
+        _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
     }
 
     private void Update()
@@ -35,7 +36,7 @@ public class ComboAttacErrorMonsterState : State
     private void UsePoison()
     {
         _particlePoison.SetActive(true);
-        _animator.SetTrigger("commboAttack");
+        _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
     }
 
     private void StopComboAttac()

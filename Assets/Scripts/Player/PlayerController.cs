@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Player _player;
     [SerializeField] private float _diveForce;
 
+    private HashAnimationPlayer _hashAnimation = new HashAnimationPlayer();
+
     private PlayerInpyt _playerInpyt;
     private InputAction _move;
     private Vector3 _direction;
@@ -127,7 +129,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnAttack(InputAction.CallbackContext obj)
     {
-        _animator.SetTrigger("attakHorizont");
+        _animator.SetTrigger(_hashAnimation.AttackAnimation);
         _player.Attack();
     }
 
@@ -135,7 +137,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_player.CanUse(_jympAttacEnergy))
         {
-            _animator.SetTrigger("jumpAttack");
+            _animator.SetTrigger(_hashAnimation.JumpAttackAnimation);
             _player.JumpAttack();
             WastedEnergy?.Invoke(_jympAttacEnergy);
         }
@@ -149,7 +151,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_player.CanUse(_comboAttackEnergy))
         {
-            _animator.SetTrigger("comboAttack");
+            _animator.SetTrigger(_hashAnimation.ComboAttackAnimation);
             _player.ComboAttack();
             WastedEnergy?.Invoke(_comboAttackEnergy);
         }
@@ -164,7 +166,7 @@ public class PlayerController : MonoBehaviour
         if (_player.CanUse(_diveEnergy))
         {
             _rigidbody.AddForce(transform.forward * _diveForce, ForceMode.Impulse);
-            _animator.SetTrigger("dive");
+            _animator.SetTrigger(_hashAnimation.DiveAnimation);
             WastedEnergy?.Invoke(_diveEnergy);
         }
         else

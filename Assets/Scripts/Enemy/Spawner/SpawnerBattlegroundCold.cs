@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class SpawnerBattlegroundCold : MonoBehaviour
 {
     [SerializeField] private Player _target;
 
-    [SerializeField] private Enemy _enemyTypeOne;
-    [SerializeField] private Enemy _enemyTypeTwo;
-    [SerializeField] private Enemy _boss;
+    [SerializeField] private GameObject _enemyTypeOne;
+    [SerializeField] private GameObject _enemyTypeTwo;
+    [SerializeField] private GameObject _boss;
 
     [SerializeField] private Transform[] _spawnPointEneysTypeOne;
     [SerializeField] private Transform[] _spawnPointEneysTypeTwo;
     [SerializeField] private Transform _spawnPointBoss;
+
+    [SerializeField] private GameObject _teleportPosition;
 
     public Player Target => _target;
 
@@ -23,26 +25,21 @@ public class Spawner : MonoBehaviour
         InstantiatetEnemys(_boss, _spawnPointBoss);
     }
 
-    private void Start()
-    {
-        //InstantiatetEnemys(_enemyTypeOne, _spawnPointEneysTypeOne);
-        //InstantiatetEnemys(_enemyTypeTwo,_spawnPointEneysTypeTwo);
-        //InstantiatetEnemys(_boss, _spawnPointBoss);
-    }
-
-    private void InstantiatetEnemys(Enemy enemy,Transform[] spawnPoint)
+    private void InstantiatetEnemys(GameObject template,Transform[] spawnPoint)
     {
         for (int i = 0; i < spawnPoint.Length; i++)
         {
-            Instantiate(enemy, spawnPoint[i]);
+            Enemy enemy = Instantiate(template, spawnPoint[i]).GetComponent<Enemy>();
             enemy.Init(_target);
             Debug.Log("Вызван инит");
         }
     }
 
-    private void InstantiatetEnemys(Enemy enemy, Transform spawnPoint)
+    private void InstantiatetEnemys(GameObject template, Transform spawnPoint)
     {
-        Instantiate(enemy, spawnPoint);
+        Enemy enemy = Instantiate(template, spawnPoint).GetComponent<Enemy>();
         enemy.Init(_target);
+        Boss boss = enemy.GetComponent<Boss>();
+        boss.GetTeleportPosition(_teleportPosition);
     }
 }

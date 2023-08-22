@@ -36,7 +36,7 @@ public class AttackStateBossWar : State
             _lastAttackTime = _delay;
         }
 
-        _animator.SetTrigger("idle");
+        _animator.SetTrigger(_hashAnimation.IdelAnimation);
         _lastAttackTime -= Time.deltaTime;
         _lastComboAttackTime -= Time.deltaTime;
     }
@@ -48,12 +48,12 @@ public class AttackStateBossWar : State
 
         if (distance <= _attackRange)
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
             target.TakeDamage(_damage);
         }
         else
         {
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
         }
     }
 }

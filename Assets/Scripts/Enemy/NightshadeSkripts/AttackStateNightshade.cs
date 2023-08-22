@@ -31,7 +31,7 @@ public class AttackStateNightshade : State
         {
             Vector3 position = new Vector3(_shootPoint.transform.position.x, _shootPoint.transform.position.y, _shootPoint.transform.position.z);
 
-            _animator.SetTrigger("attack");
+            _animator.SetTrigger(_hashAnimation.AttackAnimation);
             Instantiate(_bullet, position, transform.rotation);
             _lastAttackTime = _delay;
         }
@@ -41,7 +41,7 @@ public class AttackStateNightshade : State
             ÑheckComboAttac();
         }
 
-        _animator.SetTrigger("idle");
+        _animator.SetTrigger(_hashAnimation.IdelAnimation);
         _lastAttackTime -= Time.deltaTime;
     }
 
