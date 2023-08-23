@@ -14922,7 +14922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ad7e6da4e1d14db6837b9f73c183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 300
+  _health: 600
   _revard: 0
   IsComboAttack: 0
   IsBanTransition: 0
@@ -15012,7 +15012,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _teleport: {fileID: 2317468644322946306, guid: 1ba0d8585df4905428aac02a62f751ba, type: 3}
-  _teleportPosition: {fileID: 0}
 --- !u!1 &1721719438690148
 GameObject:
   m_ObjectHideFlags: 0

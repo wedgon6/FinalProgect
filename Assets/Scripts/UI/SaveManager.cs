@@ -74,7 +74,6 @@ public class SaveManager : MonoBehaviour
 
     public void LoadSaveScene()
     {
-        Debug.Log(_currentSceneIndex);
         SceneManager.LoadScene(_currentSceneIndex = PlayerPrefs.GetInt(_sceneIndexKey));
     }
 

@@ -948,7 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd5ad7e6da4e1d14db6837b9f73c183f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 100
+  _health: 300
   _revard: 20
   IsComboAttack: 0
   IsBanTransition: 0

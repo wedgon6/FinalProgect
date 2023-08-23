@@ -27,7 +27,15 @@ public class GameRule : MonoBehaviour
 
     public void RestartLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        int currenSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            _saveManager.ResetData();
+            SceneManager.LoadScene(currenSceneIndex);
+        }
+
+        SceneManager.LoadScene(currenSceneIndex);
     }
 
     public void ExitMainMenu()

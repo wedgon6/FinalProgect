@@ -26,6 +26,8 @@ public class SpawnerFeastDuringThePlague : MonoBehaviour
     {
         InstantiatetEnemys(_enemyTypeOne, _spawnPointEneysTypeOne);
         InstantiatetEnemys(_enemyTypeTwo, _spawnPointEneysTypeTwo);
+        InstantiatetEnemys(_enemyTypeThree, _spawnPointEneysTypeThree);
+        InstantiatetEnemys(_enemyTypeFour, _spawnPointEneysTypeFour);
         InstantiatetEnemys(_boss, _spawnPointBoss);
     }
 
