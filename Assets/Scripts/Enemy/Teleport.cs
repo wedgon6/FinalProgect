@@ -5,20 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Teleport : MonoBehaviour
 {
-    private SaveManager _saveManager;
-    private GameObject _target;
-
-    private void Start()
-    {
-        _target = GameObject.FindGameObjectWithTag("SaveManager");
-        _saveManager = _target.GetComponent<SaveManager>();       
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         if (other.gameObject.TryGetComponent(out Player player))
         {
-            _saveManager.SavePlayerData();
+            player.SaveData();
             int currentScene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(currentScene + 1);
         }

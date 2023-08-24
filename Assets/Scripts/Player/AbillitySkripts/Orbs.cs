@@ -8,19 +8,11 @@ public class Orbs : MonoBehaviour
    
     private int _damage = 10;
 
-    private void Start()
-    {
-        //_damage = TakeDamage();
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            other.gameObject.TryGetComponent(out Enemy enemy);
             enemy.TakeDamage(_damage);
-            Debug.Log("Попал орбом");
-            Debug.Log(_damage);
         }
     }
 

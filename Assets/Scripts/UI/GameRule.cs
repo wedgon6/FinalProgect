@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameRule : MonoBehaviour
 {
+    const string MainMenuScene = "MainMenu";
+
     [SerializeField] private GameObject _deadPanel;
     [SerializeField] private Player _player;
     [SerializeField] private SaveManager _saveManager;
@@ -41,7 +43,7 @@ public class GameRule : MonoBehaviour
     public void ExitMainMenu()
     {
         _saveManager.SavePlayerData();
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(MainMenuScene);
     }
 
     public void ExitGame()

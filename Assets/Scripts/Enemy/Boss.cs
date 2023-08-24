@@ -36,6 +36,5 @@ public class Boss : MonoBehaviour
     public void GetTeleportPosition(GameObject teleportPosition)
     {
         _teleportPosition = teleportPosition;
-        Debug.Log("передал телепорт");
     }
 }

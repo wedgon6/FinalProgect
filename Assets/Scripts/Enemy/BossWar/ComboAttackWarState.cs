@@ -15,6 +15,7 @@ public class ComboAttackWarState : State
     private Enemy _enemy;
     private Rigidbody _rigidbody;
     private float _jumpForce = 10;
+    private float _damageRange = 10;
 
     private void Start()
     {
@@ -45,7 +46,7 @@ public class ComboAttackWarState : State
 
         _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
 
-        if (distance <= 10)
+        if (distance <= _damageRange)
         {
             target.TakeDamage(_damageComboAttack);
         }

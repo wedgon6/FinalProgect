@@ -37,7 +37,6 @@ public class SpawnerFeastDuringThePlague : MonoBehaviour
         {
             Enemy enemy = Instantiate(template, spawnPoint[i]).GetComponent<Enemy>();
             enemy.Init(_target);
-            Debug.Log("Вызван инит");
         }
     }
 

@@ -17,9 +17,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.TryGetComponent(out Player player))
         {
-            other.gameObject.TryGetComponent(out Player player);
             player.TakeDamage(_damage);
             Debug.Log(_damage);
             Destroy(gameObject);

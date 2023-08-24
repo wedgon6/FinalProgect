@@ -6,6 +6,17 @@ using UnityEngine.Events;
 [RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
 {
+    const string AbillityEasyStep = "EasyStep";
+    const string AbillityFuriousBlow = "FuriousBlow";
+    const string AbillityBattleHungry = "BattleHungry";
+    const string AbillityInnerPeace = "InnerPeace";
+    const string AbillitySecondWind = "SecondWind";
+    const string AbillityShockWave = "ShockWave";
+    const string AbillityThunderbolt = "Thunderbolt";
+    const string AbillityPowerOfHeaven = "PowerOfHeaven";
+    const string AbillityNovice = "Novice";
+    const string AbillityThunderclap = "Thunderclap";
+
     [SerializeField] private int _maxHealth;
     [SerializeField] private int _maxVitality;
     [SerializeField] private Weapon _weapon;
@@ -120,43 +131,43 @@ public class Player : MonoBehaviour
     {
         for (int i = 0; i < _abillities.Count; i++)
         {
-            if (_abillities[i].Name == "EasyStep")
+            if (_abillities[i].Name == AbillityEasyStep)
             {
                 AddEasyStep();
             }
-            else if (_abillities[i].Name == "FuriousBlow")
+            else if (_abillities[i].Name == AbillityFuriousBlow)
             {
                 _weapon.PlayerAddFuriousBlow();
             }
-            else if(_abillities[i].Name == "BattleHungry")
+            else if(_abillities[i].Name == AbillityBattleHungry)
             {
                 _weapon.PlayerAddBattleHungr();
             }
-            else if(_abillities[i].Name == "InnerPeace")
+            else if(_abillities[i].Name == AbillityInnerPeace)
             {
                 _playerController.PlayerAddInnerPeace();
             }
-            else if (_abillities[i].Name == "SecondWind")
+            else if (_abillities[i].Name == AbillitySecondWind)
             {
                 AddSecondWind();
             }
-            else if (_abillities[i].Name == "ShockWave")
+            else if (_abillities[i].Name == AbillityShockWave)
             {
                 _weapon.PlayerAddShockWave();
             }
-            else if (_abillities[i].Name == "Thunderbolt")
+            else if (_abillities[i].Name == AbillityThunderbolt)
             {
                 _weapon.PlayerAddThunderbolt();
             }
-            else if (_abillities[i].Name == "PowerOfHeaven")
+            else if (_abillities[i].Name == AbillityPowerOfHeaven)
             {
                 _weapon.PlayerAddPowerOfHeaven();
             }
-            else if (_abillities[i].Name == "Novice")
+            else if (_abillities[i].Name == AbillityNovice)
             {
                 PlayerAddNovice();
             }
-            else if (_abillities[i].Name == "Thunderclap")
+            else if (_abillities[i].Name == AbillityThunderclap)
             {
                 _weapon.PlayerAddTunderclap();
             }
@@ -254,5 +265,10 @@ public class Player : MonoBehaviour
         _currentVitality = vitality;
         HealthChanged?.Invoke();
         VitalityChanged?.Invoke();
+    }
+
+    public void SaveData()
+    {
+        _saveManager.SavePlayerData();
     }
 }

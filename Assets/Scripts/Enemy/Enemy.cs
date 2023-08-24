@@ -19,7 +19,6 @@ public class Enemy : MonoBehaviour
     public void Init(Player player)
     {
         _target = player;
-        Debug.Log("Передал игрока");
     }
 
     public void TakeDamage(int damege)

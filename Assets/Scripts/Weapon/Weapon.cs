@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -18,10 +16,14 @@ public class Weapon : MonoBehaviour
     public int MagicDanage => _magicDanage;
 
     private int _critDamage;
+    private int _multiplierDamage = 2;
+    private int _minRange = 0;
+    private int _maxRange = 100;
+
     private float _chanceCritDamage = 0;
     private float _chanceVampirism = 0;
-    private int _multiplierDamage = 2;
     private float _attackDistance = 4;
+
     private bool _isShockWaveBuy = false;
     private bool _isTunderclap = false;
     private bool _canVampirism = false;
@@ -37,16 +39,17 @@ public class Weapon : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other)
-    {  
-        if (other.gameObject.CompareTag("Enemy"))
+    {
+        int damegeSplitter = 2;
+
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            other.gameObject.TryGetComponent(out Enemy enemy);
             int currentDamage = _damage + CalculationCritDamage()+_magicDanage;
             enemy.TakeDamage(currentDamage);
 
             if (IsVampirism())
             {
-                _player.RecoverHealth(currentDamage/2);
+                _player.RecoverHealth(currentDamage/damegeSplitter);
             }
 
             _collider.enabled = false;
@@ -58,7 +61,7 @@ public class Weapon : MonoBehaviour
         _critDamage = _damage;
         _multiplierDamage = 2;
 
-        if(Random.Range(0,100) <= _chanceCritDamage)
+        if(Random.Range(_minRange,_maxRange) <= _chanceCritDamage)
         {
             _critDamage *= _multiplierDamage;
             return _critDamage;
@@ -71,7 +74,7 @@ public class Weapon : MonoBehaviour
     {
         if (_canVampirism)
         {
-            if (Random.Range(0, 100) <= _chanceVampirism)
+            if (Random.Range(_minRange, _maxRange) <= _chanceVampirism)
             {
                 return true;
             }
@@ -111,6 +114,8 @@ public class Weapon : MonoBehaviour
 
     public void UseJumpAttack()
     {
+        int bonusDistanceY = 5;
+
         _collider.enabled = true;
         var colliders = Physics.OverlapSphere(transform.position, _attackDistance);
 
@@ -124,7 +129,7 @@ public class Weapon : MonoBehaviour
 
         if (_isTunderclap)
         {
-            Vector3 position = new Vector3(transform.position.x, transform.position.y+5, transform.position.z);
+            Vector3 position = new Vector3(transform.position.x, transform.position.y+ bonusDistanceY, transform.position.z);
             Instantiate(_tunderclapEffect,position,Quaternion.Euler(0,0,0));
         }
     }
@@ -152,13 +157,17 @@ public class Weapon : MonoBehaviour
 
     public void PlayerAddThunderbolt()
     {
+        int bonusDamage = 4;
+
         _thunderboltParticle.SetActive(true);
-        _magicDanage += 4;
+        _magicDanage += bonusDamage;
     }
 
     public void PlayerAddPowerOfHeaven()
     {
-        _magicDanage *= 2;
+        int bonusDamage = 2;
+
+        _magicDanage *= bonusDamage;
         _shockWave.UpDamage();
     }
 

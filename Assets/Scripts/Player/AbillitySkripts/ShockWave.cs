@@ -24,9 +24,8 @@ public class ShockWave : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.TryGetComponent(out Enemy enemy))
         {
-            other.gameObject.TryGetComponent(out Enemy enemy);
             enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
