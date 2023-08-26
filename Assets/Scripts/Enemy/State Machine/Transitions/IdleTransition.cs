@@ -12,8 +12,6 @@ public class IdleTransition : Transition
         float distance = directionToTarget.magnitude;
 
         if (distance >= _distace)
-        {
             NeedTransit = true;
-        }
     }
 }

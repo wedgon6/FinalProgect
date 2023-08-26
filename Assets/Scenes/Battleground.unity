@@ -943,39 +943,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 1879111717}
-  _enemyTypeOne: {fileID: 3821390967242011371, guid: 03a2a0892d758e24ebb05cd1ffb48524, type: 3}
-  _enemyTypeTwo: {fileID: 7298126981108443951, guid: 4e37ebb7fae6bb94e888a4480a157e9e, type: 3}
-  _boss: {fileID: 6454623586437811362, guid: a00d08ccf8b47f24180e46e1fd6e49e3, type: 3}
-  _spawnPointEneysTypeOne:
-  - {fileID: 457292750}
-  - {fileID: 1448658600}
-  - {fileID: 247370367}
-  - {fileID: 810503414}
-  - {fileID: 1711808591}
-  - {fileID: 1883042390}
-  - {fileID: 421290109}
-  - {fileID: 212329412}
-  - {fileID: 1696691052}
-  - {fileID: 1564135646}
-  - {fileID: 563028223}
-  - {fileID: 561174519}
-  - {fileID: 567586975}
-  - {fileID: 1869826546}
-  - {fileID: 196662156}
-  - {fileID: 534379134}
-  - {fileID: 634668884}
-  - {fileID: 332374254}
-  - {fileID: 461093322}
-  - {fileID: 592258261}
-  _spawnPointEneysTypeTwo:
-  - {fileID: 1613578770}
-  - {fileID: 910944141}
-  - {fileID: 1831415962}
-  - {fileID: 1856107822}
-  - {fileID: 1365948556}
-  - {fileID: 415786100}
-  - {fileID: 1265810167}
-  _spawnPointBoss: {fileID: 1924712673}
+  _enemies:
+  - Enemy: {fileID: 548013619, guid: 03a2a0892d758e24ebb05cd1ffb48524, type: 3}
+    SpawnPoints:
+    - {fileID: 457292750}
+    - {fileID: 1448658600}
+    - {fileID: 247370367}
+    - {fileID: 810503414}
+    - {fileID: 1711808591}
+    - {fileID: 1883042390}
+    - {fileID: 421290109}
+    - {fileID: 212329412}
+    - {fileID: 1696691052}
+    - {fileID: 1564135646}
+    - {fileID: 563028223}
+    - {fileID: 561174519}
+    - {fileID: 567586975}
+    - {fileID: 1869826546}
+    - {fileID: 196662156}
+    - {fileID: 534379134}
+    - {fileID: 634668884}
+    - {fileID: 332374254}
+    - {fileID: 461093322}
+    - {fileID: 592258261}
+  - Enemy: {fileID: 1687074771, guid: 4e37ebb7fae6bb94e888a4480a157e9e, type: 3}
+    SpawnPoints:
+    - {fileID: 1613578770}
+    - {fileID: 910944141}
+    - {fileID: 1831415962}
+    - {fileID: 1856107822}
+    - {fileID: 1365948556}
+    - {fileID: 415786100}
+    - {fileID: 1265810167}
+  - Enemy: {fileID: 6147981001608235884, guid: a00d08ccf8b47f24180e46e1fd6e49e3, type: 3}
+    SpawnPoints:
+    - {fileID: 1924712673}
   _teleportPosition: {fileID: 1453417380}
 --- !u!1 &730150701
 GameObject:
@@ -1926,11 +1928,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9360108
+      value: 0.93601084
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.14998001
+      value: 0.14998004
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y

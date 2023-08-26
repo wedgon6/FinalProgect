@@ -21,15 +21,12 @@ public class DyingState : State
         _collider.enabled = false;
         _animator = GetComponent<Animator>();
         _animator.SetTrigger(_hashAnimation.DeadAnimation);
+        StartCoroutine(DestrouEnemy());
     }
 
-    private void Update()
+    private IEnumerator DestrouEnemy()
     {
-        _elapsedtime += Time.deltaTime;
-
-        if(_elapsedtime > _timeDestroy)
-        {
-            Destroy(gameObject);
-        }
+        yield return new WaitForSeconds(_timeDestroy);
+        Destroy(gameObject);
     }
 }

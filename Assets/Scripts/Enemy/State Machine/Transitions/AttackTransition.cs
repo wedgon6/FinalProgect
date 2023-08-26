@@ -16,11 +16,6 @@ public class AttackTransition : Transition
 
     private void Update()
     {
-        //if (Vector2.Distance(transform.position, Target.transform.position) <= _transitionRange)    
-        //{
-        //    NeedTransit = true;
-        //}
-
         Vector3 directionToTarget = transform.position - Target.transform.position;
         float distance = directionToTarget.magnitude;
 

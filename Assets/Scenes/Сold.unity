@@ -509,15 +509,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.2205344
+      value: 0.22053437
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03945306
+      value: 0.039453056
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.9069992
+      value: -0.9069991
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.z
@@ -541,11 +541,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.21330212
+      value: 0.21330209
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.042177074
+      value: 0.04217707
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
@@ -1493,31 +1493,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 248131275}
-  _enemyTypeOne: {fileID: 1711702802072279075, guid: 0e40dba4ee64afc49bc86a86d2fd3567, type: 3}
-  _enemyTypeTwo: {fileID: 1175759943204881065, guid: 159af4e80d6a4dd46b71eb3204647a6e, type: 3}
-  _boss: {fileID: 1721587517403622, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
-  _spawnPointEneysTypeOne:
-  - {fileID: 2085712391}
-  - {fileID: 781121667}
-  - {fileID: 679997718}
-  - {fileID: 993982146}
-  - {fileID: 1861424700}
-  - {fileID: 1298951919}
-  - {fileID: 1989685624}
-  - {fileID: 56174102}
-  - {fileID: 866838751}
-  _spawnPointEneysTypeTwo:
-  - {fileID: 870017329}
-  - {fileID: 1114180508}
-  - {fileID: 436219333}
-  - {fileID: 895085464}
-  - {fileID: 208333458}
-  - {fileID: 733152702}
-  - {fileID: 210862750}
-  - {fileID: 1930542837}
-  - {fileID: 1191746554}
-  - {fileID: 24755979}
-  _spawnPointBoss: {fileID: 1606334925}
+  _enemies:
+  - Enemy: {fileID: 1816303706, guid: 0e40dba4ee64afc49bc86a86d2fd3567, type: 3}
+    SpawnPoints:
+    - {fileID: 866838751}
+    - {fileID: 56174102}
+    - {fileID: 1989685624}
+    - {fileID: 1298951919}
+    - {fileID: 1861424700}
+    - {fileID: 993982146}
+    - {fileID: 679997718}
+    - {fileID: 781121667}
+    - {fileID: 2085712391}
+  - Enemy: {fileID: 491498790, guid: 159af4e80d6a4dd46b71eb3204647a6e, type: 3}
+    SpawnPoints:
+    - {fileID: 24755979}
+    - {fileID: 1191746554}
+    - {fileID: 1930542837}
+    - {fileID: 210862750}
+    - {fileID: 733152702}
+    - {fileID: 208333458}
+    - {fileID: 895085464}
+    - {fileID: 436219333}
+    - {fileID: 1114180508}
+    - {fileID: 870017329}
+  - Enemy: {fileID: 1685310677, guid: c6295e3ac14276d44a00c6e1c7860934, type: 3}
+    SpawnPoints:
+    - {fileID: 1606334925}
   _teleportPosition: {fileID: 1236156567}
 --- !u!4 &490776998
 Transform:

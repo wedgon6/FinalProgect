@@ -15,8 +15,6 @@ public class ComboAttackTransition : Transition
     private void Update()
     {
         if(_enemy.IsComboAttack == true)
-        {
             NeedTransit = true;
-        }
     }
 }

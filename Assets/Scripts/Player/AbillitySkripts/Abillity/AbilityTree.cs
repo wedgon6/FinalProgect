@@ -33,9 +33,7 @@ public class AbilityTree : MonoBehaviour
     private void Update()
     {
         if (_player.Experience >= _expirienceLevel)
-        {
             LevelUp();
-        }
     }
 
     private void OnEnable()

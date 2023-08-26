@@ -45,9 +45,7 @@ public class PlayerController : MonoBehaviour
         _playerInpyt.Player.Attack.performed += ctx =>
         {
             if (ctx.interaction is MultiTapInteraction)
-            {
                 ComboAttack();
-            }
         };
     }
 
@@ -93,9 +91,7 @@ public class PlayerController : MonoBehaviour
     private void OnJump(InputAction.CallbackContext obj)
     {
         if (IsGrounded())
-        {
             _direction += Vector3.up * _jumpForce;
-        }
     }
 
     private void LookAt()
@@ -104,13 +100,9 @@ public class PlayerController : MonoBehaviour
         direction.y = 0;
 
         if (_move.ReadValue<Vector2>().sqrMagnitude > 0.1f && direction.sqrMagnitude > 0.1f)
-        {
             _rigidbody.rotation = Quaternion.LookRotation(direction, Vector3.up);
-        }
         else
-        {
             _rigidbody.angularVelocity = Vector3.zero;
-        }
     }
 
     private bool IsGrounded()
@@ -118,13 +110,9 @@ public class PlayerController : MonoBehaviour
         Ray ray = new Ray(transform.position + Vector3.up * 1f, Vector3.down);
 
         if (Physics.Raycast(ray, out RaycastHit hit, 2f))
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     private void OnAttack(InputAction.CallbackContext obj)
@@ -184,17 +172,13 @@ public class PlayerController : MonoBehaviour
         _direction = Vector3.zero;
 
         if (_rigidbody.velocity.y < 0f)
-        {
             _rigidbody.velocity -= Vector3.down * Physics.gravity.y * Time.fixedDeltaTime;
-        }
 
         Vector3 horizontalVelocity = _rigidbody.velocity;
         horizontalVelocity.y = 0;
 
         if (horizontalVelocity.sqrMagnitude > _maxSpeed * _maxSpeed)
-        {
             _rigidbody.velocity = horizontalVelocity.normalized * _maxSpeed + Vector3.up * _rigidbody.velocity.y;
-        }
     }
 
     public void PlayerAddEasyStep()

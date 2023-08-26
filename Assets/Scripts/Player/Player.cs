@@ -75,9 +75,7 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if(_currentVitality < _maxVitality)
-        {
             RecoverVitality();
-        }
     }
 
     private void DiveEnergy()
@@ -113,9 +111,7 @@ public class Player : MonoBehaviour
         for (int i = 0; i < _abillities.Count; i++)
         {
             if (_abillities[i] = abillity)
-            {
                 return true;
-            }
         }
 
         return false;
@@ -132,45 +128,25 @@ public class Player : MonoBehaviour
         for (int i = 0; i < _abillities.Count; i++)
         {
             if (_abillities[i].Name == AbillityEasyStep)
-            {
                 AddEasyStep();
-            }
             else if (_abillities[i].Name == AbillityFuriousBlow)
-            {
                 _weapon.PlayerAddFuriousBlow();
-            }
             else if(_abillities[i].Name == AbillityBattleHungry)
-            {
                 _weapon.PlayerAddBattleHungr();
-            }
             else if(_abillities[i].Name == AbillityInnerPeace)
-            {
                 _playerController.PlayerAddInnerPeace();
-            }
             else if (_abillities[i].Name == AbillitySecondWind)
-            {
                 AddSecondWind();
-            }
             else if (_abillities[i].Name == AbillityShockWave)
-            {
                 _weapon.PlayerAddShockWave();
-            }
             else if (_abillities[i].Name == AbillityThunderbolt)
-            {
                 _weapon.PlayerAddThunderbolt();
-            }
             else if (_abillities[i].Name == AbillityPowerOfHeaven)
-            {
                 _weapon.PlayerAddPowerOfHeaven();
-            }
             else if (_abillities[i].Name == AbillityNovice)
-            {
                 PlayerAddNovice();
-            }
             else if (_abillities[i].Name == AbillityThunderclap)
-            {
                 _weapon.PlayerAddTunderclap();
-            }
         }
     }
 
@@ -216,9 +192,7 @@ public class Player : MonoBehaviour
         HealthChanged?.Invoke();
 
         if(_currentHealth <= 0)
-        {
             PlaeyDie?.Invoke();
-        }
     }
 
     public void RecoverHealth(int healing)
@@ -247,9 +221,7 @@ public class Player : MonoBehaviour
     public bool CanUse(int energy)
     {
         if (_currentVitality <= energy)
-        {
             return false;
-        }
 
         return true;
     }

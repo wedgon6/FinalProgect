@@ -24,13 +24,9 @@ public class ComboAttacErrorMonsterState : State
     private void Update()
     {
         if (_timeAnimation > 0)
-        {
             _timeAnimation--;
-        }
         else
-        {
             StopComboAttac();
-        }
     }
 
     private void UsePoison()

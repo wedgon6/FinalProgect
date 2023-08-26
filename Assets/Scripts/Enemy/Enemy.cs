@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public int Health => _health;
     public bool IsComboAttack;
     public bool IsBanTransition = false;
-    public event UnityAction<Enemy> Dying;
+    public event UnityAction Dying;
 
     public void Init(Player player)
     {
@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour
 
         if( _health < 0)
         {
-            Dying?.Invoke(this);
+            Dying?.Invoke();
             _target.OnEnemyDied(_revard);
         }
     }

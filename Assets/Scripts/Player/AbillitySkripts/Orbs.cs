@@ -11,9 +11,7 @@ public class Orbs : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent(out Enemy enemy))
-        {
             enemy.TakeDamage(_damage);
-        }
     }
 
     public void UpDamage()

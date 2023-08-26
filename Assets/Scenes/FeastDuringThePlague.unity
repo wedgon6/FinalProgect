@@ -371,31 +371,31 @@ PrefabInstance:
       objectReference: {fileID: 2013993622}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.9610033
+      value: -5.9610014
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8468318
+      value: 1.8468332
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.69581
+      value: 15.695818
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6572624
+      value: -0.6572619
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.10531533
+      value: -0.10531524
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6993571
+      value: -0.6993575
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817737035897, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2604124
+      value: 0.26041257
       objectReference: {fileID: 0}
     - target: {fileID: 4167050817822625716, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_AnchorMax.y
@@ -419,27 +419,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8468323
+      value: 1.846834
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.695813
+      value: 15.695822
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.6552434
+      value: -0.6552429
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.11722169
+      value: -0.11722154
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.69451785
+      value: -0.69451827
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818024726915, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.273057
+      value: 0.27305713
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818234683179, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_AnchorMax.y
@@ -451,27 +451,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.7240701
+      value: 1.724071
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.0825615
+      value: 15.082567
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.69034034
+      value: -0.6903401
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.13650368
+      value: -0.13650365
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.65638393
+      value: -0.6563842
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818319388918, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.2719506
+      value: 0.27195072
       objectReference: {fileID: 0}
     - target: {fileID: 4167050818389728060, guid: 23b48b54ae39b1647aaf213eab0e98be, type: 3}
       propertyPath: m_AnchorMax.y
@@ -1553,45 +1553,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 1445060475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20b504caa3899e943bc18b28af61cf98, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a5d16402d45b9a44a4c0a2d31648b54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 364102781}
-  _enemyTypeOne: {fileID: 1320769219843760273, guid: 9108149b2610790459d0672a7788c571, type: 3}
-  _enemyTypeTwo: {fileID: 7942098024884280847, guid: c40210e519771fc43b6bf6ddb2e29340, type: 3}
-  _enemyTypeThree: {fileID: 2168068442106150883, guid: 4ba5cbea767d9b54eb7a655b769517da, type: 3}
-  _enemyTypeFour: {fileID: 111292, guid: 332254905319da1469830bd3e8725b48, type: 3}
-  _boss: {fileID: 5919799614033517209, guid: a2a99f7f550660847bb85a6fa4ebbda6, type: 3}
-  _spawnPointEneysTypeOne:
-  - {fileID: 2115431942}
-  - {fileID: 1880299689}
-  - {fileID: 1057542995}
-  - {fileID: 1505324560}
-  - {fileID: 2003686621}
-  - {fileID: 1012693890}
-  - {fileID: 1469368144}
-  - {fileID: 989299445}
-  - {fileID: 478488319}
-  _spawnPointEneysTypeTwo:
-  - {fileID: 607255090}
-  _spawnPointEneysTypeThree:
-  - {fileID: 2032022016}
-  - {fileID: 1302444297}
-  - {fileID: 1577319363}
-  - {fileID: 1413366278}
-  - {fileID: 837108586}
-  - {fileID: 129969038}
-  - {fileID: 79026552}
-  - {fileID: 1035235003}
-  - {fileID: 893609922}
-  - {fileID: 1614831067}
-  - {fileID: 1450980164}
-  - {fileID: 952356876}
-  - {fileID: 1748271255}
-  - {fileID: 1447698058}
-  _spawnPointEneysTypeFour:
-  - {fileID: 1136030231}
-  _spawnPointBoss: {fileID: 1544450083}
+  _enemies:
+  - Enemy: {fileID: 1399775613, guid: 9108149b2610790459d0672a7788c571, type: 3}
+    SpawnPoints:
+    - {fileID: 478488319}
+    - {fileID: 989299445}
+    - {fileID: 1469368144}
+    - {fileID: 1012693890}
+    - {fileID: 2003686621}
+    - {fileID: 1505324560}
+    - {fileID: 1057542995}
+    - {fileID: 1880299689}
+    - {fileID: 2115431942}
+  - Enemy: {fileID: 2124325127, guid: c40210e519771fc43b6bf6ddb2e29340, type: 3}
+    SpawnPoints:
+    - {fileID: 607255090}
+  - Enemy: {fileID: 826801551, guid: 4ba5cbea767d9b54eb7a655b769517da, type: 3}
+    SpawnPoints:
+    - {fileID: 1447698058}
+    - {fileID: 1748271255}
+    - {fileID: 952356876}
+    - {fileID: 1450980164}
+    - {fileID: 1614831067}
+    - {fileID: 893609922}
+    - {fileID: 1035235003}
+    - {fileID: 79026552}
+    - {fileID: 129969038}
+    - {fileID: 837108586}
+    - {fileID: 1413366278}
+    - {fileID: 1577319363}
+    - {fileID: 1302444297}
+    - {fileID: 2032022016}
+  - Enemy: {fileID: 1661889043, guid: 332254905319da1469830bd3e8725b48, type: 3}
+    SpawnPoints:
+    - {fileID: 1136030231}
+  - Enemy: {fileID: 1073505370, guid: a2a99f7f550660847bb85a6fa4ebbda6, type: 3}
+    SpawnPoints:
+    - {fileID: 1544450083}
   _teleportPosition: {fileID: 2146707332}
 --- !u!4 &1445060477
 Transform:

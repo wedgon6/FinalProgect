@@ -47,9 +47,7 @@ public class ComboAttackWarState : State
         _animator.SetTrigger(_hashAnimation.ComboAttakAnimation);
 
         if (distance <= _damageRange)
-        {
             target.TakeDamage(_damageComboAttack);
-        }
 
         _enemy.IsComboAttack = false;
     }

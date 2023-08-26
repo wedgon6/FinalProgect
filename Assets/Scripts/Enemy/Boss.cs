@@ -10,27 +10,25 @@ public class Boss : MonoBehaviour
     private Enemy _boss;
     private bool _isBossDyi = false;
 
-    private void Start()
+    private void Awake()
     {
         _boss = GetComponent<Enemy>();
-        
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if(_boss.Health <= 0)
-        {
-            if(_isBossDyi == false)
-            {
-                OpenTeleport();
-            }
-        }
+        _boss.Dying += OpenTeleport;
+    }
+
+    private void OnDisable()
+    {
+        _boss.Dying -= OpenTeleport;
     }
 
     private void OpenTeleport()
     {
-        Instantiate(_teleport, new Vector3(_teleportPosition.transform.position.x, _teleportPosition.transform.position.y, _teleportPosition.transform.position.z), transform.rotation);
-        _isBossDyi = true;
+        Instantiate(_teleport, new Vector3(_teleportPosition.transform.position.x, _teleportPosition.transform.position.y, _teleportPosition.transform.position.z), 
+            transform.rotation);
     }
 
     public void GetTeleportPosition(GameObject teleportPosition)

@@ -37,9 +37,7 @@ public class AttackStateNightshade : State
         }
 
         if (_canComboAttack)
-        {
             ÑheckComboAttac();
-        }
 
         _animator.SetTrigger(_hashAnimation.IdelAnimation);
         _lastAttackTime -= Time.deltaTime;

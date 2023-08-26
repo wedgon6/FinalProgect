@@ -14,9 +14,7 @@ public class IdleState : State
         foreach (var trigger in _animation.parameters)
         {
             if (trigger.type == AnimatorControllerParameterType.Trigger)
-            {
                 _animation.ResetTrigger(trigger.name);
-            }
         }
     }
 }
